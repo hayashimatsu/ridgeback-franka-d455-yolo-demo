@@ -44,3 +44,17 @@
 - Clean-reopen remains blocked pending an explicit decision to preserve the
   current GUI state as a separate revision or discard it before opening the
   clean committed validation worktree.
+
+## 2026-07-30T23:56:52Z — User-reviewed USD saved for commit
+
+- The user explicitly authorized saving and committing the current active USD
+  as the reviewed baseline.
+- Confirmed the active root path matched the canonical project USD and the
+  timeline was stopped before saving.
+- Saved only the root layer: `dirty=true` before, `dirty=false` after.
+- Disk SHA-256 changed from `c9631abf...` to `a724cd7d...` after the final save.
+- Compared the committed M0 and reviewed layers as USDA: 2,268 versus 2,410
+  lines and 517 unified-diff lines. Observed changes include viewport camera
+  state, render settings, and Replicator render products.
+- Added `validation/baseline/reviewed_baseline.json`; clean-reopen acceptance is
+  still required before calling the reviewed scene a passing baseline.

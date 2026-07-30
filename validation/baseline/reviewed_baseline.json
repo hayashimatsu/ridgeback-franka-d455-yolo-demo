@@ -1,0 +1,33 @@
+{
+  "schema": "ridgeback-d455-yolo-reviewed-baseline-v1",
+  "reviewed_at_utc": "2026-07-30T23:56:52Z",
+  "authority": "user explicitly requested saving and committing the current active USD after GUI review",
+  "lineage": {
+    "source_import_commit": "23aeb67d32cf4904a42f2c0cab714121e364529d",
+    "project_parent_commit": "2005a6a1115b797ed51aea67309aaf18b6f2635c",
+    "imported_scene_sha256": "ce5690e406da8180555e425df7e07f298ddf25c0b2e87d4d70263fb5dd98dffa",
+    "disk_sha256_before_final_save": "c9631abf3c9bb9bce05b74b11bbd13514249d383c11251fd671c3cfd29d157a2"
+  },
+  "reviewed_scene": {
+    "path": "scenes/ridgeback_franka_d455_demo.usd",
+    "sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc",
+    "root_layer_dirty_before_save": true,
+    "root_layer_dirty_after_save": false,
+    "timeline_playing_during_save": false
+  },
+  "layer_diff_summary": {
+    "imported_usda_line_count": 2268,
+    "reviewed_usda_line_count": 2410,
+    "unified_diff_line_count": 517,
+    "observed_categories": [
+      "viewport camera and bound-camera state",
+      "render settings",
+      "Replicator render products"
+    ]
+  },
+  "release_status": "pending_clean_reopen_acceptance",
+  "notes": [
+    "This record preserves explicit user review authority; it is not a runtime acceptance pass.",
+    "The historical 1.0.0 acceptance hash does not match this reviewed scene."
+  ]
+}

@@ -10,6 +10,9 @@ from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 PROVENANCE_PATH = REPOSITORY_ROOT / "validation" / "baseline" / "provenance.json"
+REVIEWED_BASELINE_PATH = (
+    REPOSITORY_ROOT / "validation" / "baseline" / "reviewed_baseline.json"
+)
 
 
 def sha256(path: Path) -> str:
@@ -22,6 +25,11 @@ def sha256(path: Path) -> str:
 
 def main() -> int:
     provenance = json.loads(PROVENANCE_PATH.read_text(encoding="utf-8"))
+    reviewed_baseline = (
+        json.loads(REVIEWED_BASELINE_PATH.read_text(encoding="utf-8"))
+        if REVIEWED_BASELINE_PATH.is_file()
+        else None
+    )
     failures: list[dict[str, str]] = []
 
     for record in provenance["files"]:
@@ -42,13 +50,20 @@ def main() -> int:
             failures.append({"path": record["path"], "reason": "missing"})
             continue
 
+        expected = record["sha256"]
+        if (
+            reviewed_baseline is not None
+            and record["path"] == reviewed_baseline["reviewed_scene"]["path"]
+        ):
+            expected = reviewed_baseline["reviewed_scene"]["sha256"]
+
         observed = sha256(candidate)
-        if observed != record["sha256"]:
+        if observed != expected:
             failures.append(
                 {
                     "path": record["path"],
                     "reason": "sha256 mismatch",
-                    "expected": record["sha256"],
+                    "expected": expected,
                     "observed": observed,
                 }
             )
@@ -56,12 +71,17 @@ def main() -> int:
     compatibility = provenance["acceptance_compatibility"]
     imported_scene = REPOSITORY_ROOT / "scenes" / "ridgeback_franka_d455_demo.usd"
     observed_scene_hash = sha256(imported_scene) if imported_scene.is_file() else None
-    if observed_scene_hash != compatibility["imported_scene_sha256"]:
+    current_expected_scene_hash = (
+        reviewed_baseline["reviewed_scene"]["sha256"]
+        if reviewed_baseline is not None
+        else compatibility["imported_scene_sha256"]
+    )
+    if observed_scene_hash != current_expected_scene_hash:
         failures.append(
             {
                 "path": "scenes/ridgeback_franka_d455_demo.usd",
                 "reason": "scene does not match acceptance-compatibility record",
-                "expected": compatibility["imported_scene_sha256"],
+                "expected": current_expected_scene_hash,
                 "observed": str(observed_scene_hash),
             }
         )
@@ -70,6 +90,8 @@ def main() -> int:
         "status": "pass" if not failures else "fail",
         "verified_file_count": len(provenance["files"]),
         "source_commit": provenance["source"]["commit"],
+        "reviewed_baseline_present": reviewed_baseline is not None,
+        "current_scene_sha256": observed_scene_hash,
         "historical_acceptance_matches_imported_scene": compatibility[
             "matches_imported_scene"
         ],

@@ -2,16 +2,16 @@
   "schema": "ridgeback-d455-yolo-baseline-clean-reopen-v1",
   "run_id": "m0-clean-reopen-20260730T235109Z",
   "timestamp_utc": "2026-07-30T23:51:09Z",
-  "result": "blocked",
+  "result": "in_progress",
   "expected_baseline": {
-    "commit": "e2b4f44857ecf8a3b98df86917a17f7d2d312c1d",
+    "commit": "pending_reviewed_baseline_commit",
     "scene": "scenes/ridgeback_franka_d455_demo.usd",
-    "sha256": "ce5690e406da8180555e425df7e07f298ddf25c0b2e87d4d70263fb5dd98dffa"
+    "sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc"
   },
   "canonical_working_copy": {
-    "scene_dirty": true,
-    "observed_sha256": "c9631abf3c9bb9bce05b74b11bbd13514249d383c11251fd671c3cfd29d157a2",
-    "action": "preserved_unmodified_and_unstaged"
+    "scene_dirty": false,
+    "observed_sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc",
+    "action": "saved_with_explicit_user_review_authority"
   },
   "clean_validation_worktree": {
     "commit": "e2b4f44857ecf8a3b98df86917a17f7d2d312c1d",
@@ -29,14 +29,14 @@
   },
   "active_stage_after_runtime_start": {
     "root_path": "/home/rci05/User/Lin/test_codex_claude_mcp_1/ridgeback-franka-d455-yolo-demo/scenes/ridgeback_franka_d455_demo.usd",
-    "root_layer_dirty": true,
+    "root_layer_dirty": false,
     "timeline_playing": false,
-    "action": "preserved_without_save_reload_or_stage_switch"
+    "action": "root_layer_saved_while_timeline_stopped"
   },
   "checks": [
     {
       "name": "active_stage_identity",
-      "result": "blocked_dirty_active_stage"
+      "result": "observed_before_clean_reopen"
     },
     {
       "name": "play_stability",
@@ -63,13 +63,10 @@
       "result": "not_run"
     }
   ],
-  "blockers": [
-    "The active canonical baseline root layer contains unsaved authored edits.",
-    "Clean-reopen requires an explicit decision to preserve the dirty state as a separate revision or discard it."
-  ],
+  "blockers": [],
   "failures": [],
   "known_limitations": [
     "This record proves only static committed-file integrity; it contains no live runtime, camera, image, depth, articulation, or capture evidence."
   ],
-  "next_action": "Resolve the dirty active-stage state, then open the clean committed baseline from the detached validation worktree and resume checks before M1."
+  "next_action": "Commit the explicitly reviewed USD, then clean-reopen that exact commit and resume live gates before M1."
 }

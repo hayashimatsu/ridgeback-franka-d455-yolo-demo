@@ -1,15 +1,15 @@
 # M0 Status — Foundation and Baseline Verification
 
 - Owner: Codex / project bootstrap
-- State: `blocked`
+- State: `in_progress`
 - Import result: `complete`
 - Clean-reopen result: `blocked`
 - Completed commit: `e2b4f44857ecf8a3b98df86917a17f7d2d312c1d`
 - Imported-file verification: pass, 14 of 14 hashes
 - Clean validation source: detached worktree at commit `e2b4f44`
-- Blocker: Isaac Sim GUI and MCP are connected, but the active canonical
-  baseline root layer is dirty. Reopening another stage would discard unsaved
-  authored state without a preserve-or-discard decision.
+- Reviewed baseline save: complete with explicit user authority; SHA-256
+  `a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc`.
+- Blocker: none; clean-reopen runtime gates remain pending.
 - Unexpected protected state: canonical baseline USD is dirty and remains
   untouched.
 
