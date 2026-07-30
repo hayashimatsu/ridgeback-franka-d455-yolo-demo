@@ -62,6 +62,10 @@ state as a new release candidate.
 - [CLAUDE.md](CLAUDE.md) defines Claude Code execution routes.
 - [docs/BASELINE_IMPORT.md](docs/BASELINE_IMPORT.md) documents the immutable
   source foundation and its provenance.
+- [milestones/CURRENT.md](milestones/CURRENT.md) identifies the current project
+  position, blocker, evidence, and next action.
+- [milestones/AGENT_HANDOFF.md](milestones/AGENT_HANDOFF.md) defines the
+  sequential M1-M3, M4-M5, and M6-M7 agent ownership contract.
 - `.agents/skills/isaac-sim-mcp-workflow/` contains the reusable preflight and
   acceptance workflow.
 - `validation/release_acceptance.template.json` is a template only; a release

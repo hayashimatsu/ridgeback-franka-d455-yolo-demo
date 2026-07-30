@@ -120,6 +120,17 @@
 - 模型依賴使用隔離環境或明確部署 artifact；不得未經驗證直接修改 Isaac Sim 內建 Python 環境。
 - 未經使用者明確授權，不得修改 MCP server implementation、credentials 或 user-level registration。
 
+## 執行與交接文件
+
+- 每次 milestone 工作前必讀 `milestones/CURRENT.md`、
+  `milestones/AGENT_HANDOFF.md`、目標 milestone 的 `STATUS.md` 與累積
+  `LOG.md`。
+- Agent 1 依序負責 M1-M3，Agent 2 依序負責 M4-M5，Agent 3 依序負責
+  M6-M7；前段 handoff gate 未通過時，後段不得開始。
+- 每次執行結束都必須追加 milestone log、更新 status 與 current pointer，
+  並記錄 evidence、失敗、決策、commit SHA 與下一個最小動作。
+- 既有 log 只能追加，不得改寫或刪除；修正以新的 dated entry 說明。
+
 ## 可觀察的 acceptance gates
 
 1. **乾淨開啟與 Play 穩定性**

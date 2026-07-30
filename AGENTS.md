@@ -44,3 +44,21 @@ Do not route by line count alone. Do not use multiple agents for sequential work
 - Inspect representative images for camera claims; JSON alone does not prove visual usefulness.
 - Inspect the staged diff before any commit. Commit only when the user requested or clearly authorized it.
 - Report outcome, evidence, limitations, and the next user action. Never hide failed probes or call incomplete work a pass.
+
+## Milestone continuity
+
+- Read `milestones/CURRENT.md`, `milestones/AGENT_HANDOFF.md`, the target
+  milestone `STATUS.md`, and its cumulative `LOG.md` before milestone work.
+- Respect the sequential ownership boundaries: Agent 1 owns M1-M3, Agent 2
+  owns M4-M5, and Agent 3 owns M6-M7. A later owner starts only after the
+  preceding handoff gate is satisfied.
+- At the end of every execution, append one dated entry to the milestone
+  `LOG.md` and update its `STATUS.md` plus `milestones/CURRENT.md`.
+- Never rewrite or delete an earlier log entry. Correct it with a later entry.
+- Log objectives, files or prims touched, commands or MCP operations, evidence,
+  failures, decisions, commit SHA, and the smallest next action.
+- Keep raw probes in ignored scratch locations. Milestone logs summarize
+  evidence; they do not duplicate every MCP response or create one permanent
+  record per call.
+- Do not let two milestone owners edit the same USD or dependent runtime files
+  concurrently.
