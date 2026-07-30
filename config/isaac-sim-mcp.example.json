@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "isaac-sim": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "/home/rci05/NVIDIA/isaac-sim-mcp/isaac_mcp/server.py"
+      ],
+      "env": {}
+    }
+  }
+}

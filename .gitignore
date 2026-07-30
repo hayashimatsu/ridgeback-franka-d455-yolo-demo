@@ -1,0 +1,10 @@
+outputs/
+validation/tmp/
+CLAUDE.local.md
+.claude/agent-memory-local/
+isaac-sim-agent-template/
+models/*.pt
+models/*.onnx
+models/*.engine
+__pycache__/
+*.pyc

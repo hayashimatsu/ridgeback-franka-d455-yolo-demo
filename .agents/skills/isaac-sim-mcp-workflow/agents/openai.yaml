@@ -1,0 +1,4 @@
+interface:
+  display_name: "Isaac Sim MCP Workflow"
+  short_description: "Run efficient, evidence-based Isaac Sim MCP tasks"
+  default_prompt: "Use $isaac-sim-mcp-workflow to execute and validate this Isaac Sim task efficiently."

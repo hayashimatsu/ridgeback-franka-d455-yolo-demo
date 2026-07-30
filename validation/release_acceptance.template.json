@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "run_id": "REPLACE_ME",
+  "timestamp_utc": "REPLACE_ME",
+  "result": "blocked",
+  "stage": {
+    "path": "REPLACE_ME",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "environment": {
+    "isaac_sim_version": "REPLACE_ME",
+    "physics_backend": "REPLACE_ME",
+    "timeline_final_state": "REPLACE_ME",
+    "callback_count": null
+  },
+  "routing": {
+    "route": "REPLACE_ME",
+    "clarification_rounds": 0,
+    "codex_handoffs": 0,
+    "opus_delegations": 0,
+    "sonnet_tasks": 0,
+    "mcp_calls": 0,
+    "mcp_retries": 0,
+    "acceptance_runs": 0,
+    "first_useful_output_call": null
+  },
+  "checks": [
+    {
+      "name": "REPLACE_ME",
+      "result": "not_run",
+      "observed": null,
+      "criterion": "REPLACE_ME",
+      "artifacts": []
+    }
+  ],
+  "failures": [
+    "Template only; validation has not run."
+  ],
+  "known_limitations": []
+}
