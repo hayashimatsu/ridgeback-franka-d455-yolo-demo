@@ -7,13 +7,19 @@ fusion to report visible object surfaces in world coordinates.
 
 ## Project status
 
-**Requirements and engineering contract confirmed; implementation has not
-started.**
+**Milestone M0 complete: the current D455 source foundation has been imported
+with exact provenance; YOLO and scene implementation have not started.**
 
-The current repository is the initial project scaffold. It intentionally does
-not yet claim that the YOLO model, synthetic dataset, factory shelf scene, or
-real-time perception pipeline exists. Planned artifacts are marked as such in
-[PROJECT_PROFILE.md](PROJECT_PROFILE.md).
+The repository contains an unchanged copy of the current source USD, runtime
+scripts, a historical compact acceptance record, and reviewed golden images. It
+intentionally does not yet claim that the YOLO model, synthetic dataset,
+factory shelf scene, or real-time perception pipeline exists. Planned artifacts
+are marked as such in [PROJECT_PROFILE.md](PROJECT_PROFILE.md), and baseline
+hashes are recorded in
+[`validation/baseline/provenance.json`](validation/baseline/provenance.json).
+The historical acceptance scene hash differs from the current imported scene
+hash, so a clean-reopen baseline check is required before treating the imported
+state as a new release candidate.
 
 ## Confirmed first release scope
 
@@ -54,6 +60,8 @@ real-time perception pipeline exists. Planned artifacts are marked as such in
 - [AGENTS.md](AGENTS.md) defines shared Isaac Sim safety, revision, routing,
   and verification rules.
 - [CLAUDE.md](CLAUDE.md) defines Claude Code execution routes.
+- [docs/BASELINE_IMPORT.md](docs/BASELINE_IMPORT.md) documents the immutable
+  source foundation and its provenance.
 - `.agents/skills/isaac-sim-mcp-workflow/` contains the reusable preflight and
   acceptance workflow.
 - `validation/release_acceptance.template.json` is a template only; a release

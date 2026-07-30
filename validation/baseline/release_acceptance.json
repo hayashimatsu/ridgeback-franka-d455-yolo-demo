@@ -1,0 +1,130 @@
+{
+  "schema": "ridgeback-d455-demo-release-acceptance-v1",
+  "release": "1.0.0",
+  "result": "pass",
+  "accepted_at_utc": "2026-07-28T02:12:00Z",
+  "scene": {
+    "path": "scenes/ridgeback_franka_d455_demo.usd",
+    "sha256_before": "b3e83bd6bcfa29350f15a365c9bb342b06f85ecfab3b09975b0491a50bf2e5a7",
+    "sha256_after": "b3e83bd6bcfa29350f15a365c9bb342b06f85ecfab3b09975b0491a50bf2e5a7",
+    "unchanged": true
+  },
+  "runtime": {
+    "isaac_sim_assets_version": "6.0",
+    "kit_build": "110.1.1+production.305458.6312fa25.gl",
+    "physics_engine": "physx",
+    "interface": "Isaac Sim MCP server",
+    "active_stage_verified": true,
+    "clean_reopen_before_test": true,
+    "clean_reopen_after_test": true
+  },
+  "checks": {
+    "play_stability": {
+      "result": "pass",
+      "frames": 120,
+      "max_abs_panda_joint_delta_deg": 0.0000025783653786261197,
+      "all_authored_states_equal_drive_targets": true
+    },
+    "gui_startup": {
+      "result": "pass",
+      "entry_point": "scripts/demo_start.py",
+      "subscription_count": 1,
+      "controller_error_count": 0,
+      "commanded_dof_indices": [3, 4, 5, 6, 7, 8, 9]
+    },
+    "ik_move_pose1": {
+      "result": "pass",
+      "target_offset_m": [-0.04, 0.04, -0.02],
+      "settle_frames": 43,
+      "position_residual_m": 0.0017749639227986336,
+      "rotation_residual_rad": 0.004771294915192299,
+      "arm_dofs_materially_moved": 7,
+      "max_non_arm_runtime_drift": 0.0002899646933656186
+    },
+    "ik_move_pose2": {
+      "result": "pass",
+      "target_offset_from_pose1_m": [0.02, -0.07, 0.015],
+      "settle_frames": 45,
+      "position_residual_m": 0.0018316557398065925,
+      "rotation_residual_rad": 0.0010259073662441044,
+      "arm_dofs_materially_moved": 7,
+      "max_non_arm_runtime_drift": 0.0001518669305369258
+    },
+    "d455_attachment": {
+      "result": "pass",
+      "poses_compared": 4,
+      "max_hand_relative_translation_delta_m": 4.813994006120744e-08,
+      "max_hand_relative_rotation_matrix_element_delta": 1.5080946191847744e-07
+    },
+    "capture_sequence": {
+      "result": "pass",
+      "labels_supplied": [null, null],
+      "run_ids": ["2026-0728-1", "2026-0728-2"],
+      "strictly_increasing": true,
+      "overwrites": false
+    },
+    "rgb": {
+      "result": "pass",
+      "pose1_mean": {
+        "left": 197.63356119791666,
+        "right": 197.65713975694445,
+        "color": 196.99379231770834
+      },
+      "pose2_mean": {
+        "left": 197.67201171875,
+        "right": 197.7069162326389,
+        "color": 197.01866319444446
+      },
+      "visual_inspection": "pass",
+      "color_frame_changed_pixel_fraction": 0.3896484375,
+      "color_camera_position_delta_m": 0.07442326486913926
+    },
+    "depth": {
+      "result": "pass",
+      "shape": [480, 640],
+      "dtype": "float32",
+      "pose1_valid_axial_pixels": 307200,
+      "pose2_valid_axial_pixels": 307200,
+      "raw_arrays_saved": true
+    },
+    "stereo_baseline": {
+      "result": "pass",
+      "required_m": 0.095,
+      "tolerance_m": 0.002,
+      "pose1_m": 0.09500000036736851,
+      "pose2_m": 0.09499999663018735
+    },
+    "ik_target_capture_visibility": {
+      "result": "pass",
+      "hidden_during_both_captures": true,
+      "visibility_after_both_captures": "inherited"
+    },
+    "cleanup": {
+      "result": "pass",
+      "controller_stopped": true,
+      "subscription_count": 0,
+      "timeline_playing": false
+    },
+    "scene_content_audit": {
+      "result": "pass_with_documented_gui_lighting_deviation",
+      "dome_light_intensity": 1000.0,
+      "distant_light_present": false,
+      "actual_rgb_frames_passed": true,
+      "right_camera_local_translate_m": [0.0, 0.0475, -2.3283064371720898e-7],
+      "rsd455_rigid_body_enabled": false
+    }
+  },
+  "golden_evidence": [
+    "validation/golden/pose1_rgb_color.png",
+    "validation/golden/pose1_rgb_left.png",
+    "validation/golden/pose1_rgb_right.png",
+    "validation/golden/pose2_rgb_color.png",
+    "validation/golden/pose2_depth_preview.png"
+  ],
+  "notes": [
+    "The MCP execute_script response wrapper emitted its known Pydantic string_type error after successful calls; runtime results were verified from project-local files.",
+    "Replicator orchestrator stepping fell back to Kit app updates in this GUI session; both captures passed RGB, depth, baseline, provenance, and visual gates.",
+    "Non-arm values above are observed physics drift, not controller command scope; the controller passed only DOF indices 3 through 9 to set_dof_position_targets.",
+    "The GUI scene uses a 1000-intensity DomeLight without a DistantLight. This differs from the generic headless-render validator recommendation, but both live capture sets passed direct RGB energy and visual-content gates; the accepted USD was not silently relit after validation."
+  ]
+}

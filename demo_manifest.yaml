@@ -1,0 +1,64 @@
+project: ridgeback_franka_d455_gui_demo
+version: 1.0.0
+status: live_gui_accepted
+
+scene:
+  path: scenes/ridgeback_franka_d455_demo.usd
+
+gui:
+  startup_script: scripts/demo_start.py
+  ik_target: /World/IKTarget
+  capture_default: demo_capture()
+  capture_with_optional_label: demo_capture("inspection-note")
+  stop: demo_stop()
+
+capture:
+  default_output: outputs/captures/<YYYY-MMDD-sequence>/
+  environment_override: D455_DEMO_OUTPUT_DIR
+  overwrite_existing: false
+  hide_ik_target: true
+  resolution: [640, 480]
+  products:
+    - rgb_color.png
+    - rgb_left.png
+    - rgb_right.png
+    - depth_axial_left.npy
+    - depth_radial_left.npy
+    - depth_axial_right.npy
+    - depth_preview.png
+    - rgb_left_annotated.png
+    - depth_preview_annotated.png
+    - region_overlay.png
+    - depth_region_labels.npy
+    - capture.json
+    - measurements.json
+    - summary.json
+
+measurement_candidate:
+  detector: depth_connected_surfaces
+  depth_aligned_camera: left
+  representative_point: valid_region_pixel_nearest_2d_mask_centroid
+  nonplanar_surface_samples: depth_region_labels.npy
+  usd_oracle_used_for_detection: false
+  formal_release_acceptance: included
+
+measurement_report:
+  input: depth_axial_left.npy
+  default_range_m: [0.05, 5.0]
+  near_to_far_order: camera_to_representative_surface
+  uses_rgb: false
+  uses_usd_oracle: false
+  output: measurements.json
+  operator_summary: summary.json
+  annotated_rgb: rgb_left_annotated.png
+  annotated_depth: depth_preview_annotated.png
+  target_overlay: region_overlay.png
+  count_fields:
+    - sensor_region_count
+    - reported_target_count
+    - excluded_environment_region_count
+
+acceptance:
+  live_gui_required: true
+  current_result: pass
+  reference_capture: outputs/captures/2026-0730-1/capture.json

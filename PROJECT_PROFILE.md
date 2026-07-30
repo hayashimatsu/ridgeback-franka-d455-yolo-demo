@@ -36,9 +36,11 @@
 
 ## 現有專案事實
 
-- 目前工作區 `/home/rci05/User/Lin/test_codex_claude_mcp_1` 原先只有 `isaac-sim-agent-template/`，不是 Git repository，尚無專案 USD 或 runtime scripts。
+- 正式 working copy 位於 `/home/rci05/User/Lin/test_codex_claude_mcp_1/ridgeback-franka-d455-yolo-demo`，追蹤 GitHub `hayashimatsu/ridgeback-franka-d455-yolo-demo` 的 `main` branch。
+- M0 已從唯讀基準導入目前的 USD、三支 runtime scripts、必要文件、manifest、歷史 compact acceptance 與五張 golden images；來源 commit 與逐檔 SHA-256 記錄於 `validation/baseline/provenance.json`。
 - 唯讀基準專案：`/home/rci05/User/Lin/test_claude_mcp_04`。
 - 基準專案目前位於 Git `main`，既有 release acceptance 為 `pass`。
+- 歷史 release acceptance 記錄的場景 SHA-256 為 `b3e83bd6...`，目前導入場景為 `ce5690e4...`；兩者不一致，因此歷史 pass 不可直接繼承，目前場景仍需 clean-reopen 驗證。
 - 基準場景：`/home/rci05/User/Lin/test_claude_mcp_04/scenes/ridgeback_franka_d455_demo.usd`。
 - 基準場景已驗證：
   - Ridgeback + Franka Panda；
@@ -61,7 +63,7 @@
 
 ## 預計建立的內容
 
-以下項目均為「預計建立」，目前尚不存在：
+以下項目尚未建立，或只有需要擴充的 M0 基準版本：
 
 - `scenes/ridgeback_franka_d455_yolo_demo.usd`
   - 從基準場景建立的新 revision；
@@ -90,7 +92,7 @@
 - `scripts/perception_ui.py`
   - 建立 Isaac Sim dockable 即時 RGB／YOLO、深度與結果表格視窗。
 - `scripts/demo_start.py`
-  - 從基準入口衍生；
+  - M0 已導入未修改的基準入口；後續預計在新 revision 工作中擴充；
   - 預計公開 `demo_start()`、`demo_capture()`、`demo_perception_status()` 與 `demo_stop()`；
   - 重複啟動不得累積 callbacks 或 render products。
 - `outputs/datasets/`

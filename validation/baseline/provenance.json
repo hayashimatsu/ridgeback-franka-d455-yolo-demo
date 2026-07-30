@@ -1,0 +1,87 @@
+{
+  "schema": "ridgeback-d455-yolo-baseline-provenance-v1",
+  "imported_at_utc": "2026-07-30T08:23:33Z",
+  "source": {
+    "repository_path": "/home/rci05/User/Lin/test_claude_mcp_04",
+    "repository_url": "https://github.com/hayashimatsu/ridgeback-franka-d455-demo.git",
+    "branch": "main",
+    "commit": "23aeb67d32cf4904a42f2c0cab714121e364529d",
+    "tracked_files_clean": true,
+    "preserved_untracked_files": [
+      "docs/explanation-for-the-measurements.md"
+    ]
+  },
+  "policy": {
+    "source_repository_read_only": true,
+    "baseline_usd_immutable": true,
+    "next_scene_change_requires_new_revision": true,
+    "baseline_release_claim_inherited": false
+  },
+  "acceptance_compatibility": {
+    "historical_record": "validation/baseline/release_acceptance.json",
+    "historical_result": "pass",
+    "historical_release": "1.0.0",
+    "historical_scene_sha256": "b3e83bd6bcfa29350f15a365c9bb342b06f85ecfab3b09975b0491a50bf2e5a7",
+    "imported_scene_sha256": "ce5690e406da8180555e425df7e07f298ddf25c0b2e87d4d70263fb5dd98dffa",
+    "matches_imported_scene": false,
+    "conclusion": "The imported record is historical evidence only. The current imported scene requires a new clean-reopen acceptance before any release claim."
+  },
+  "files": [
+    {
+      "path": "scenes/ridgeback_franka_d455_demo.usd",
+      "sha256": "ce5690e406da8180555e425df7e07f298ddf25c0b2e87d4d70263fb5dd98dffa"
+    },
+    {
+      "path": "scripts/demo_start.py",
+      "sha256": "d5a0e357dea15aecf910ace63e6132e131d31f77c263881d8a9f9c22fe631eec"
+    },
+    {
+      "path": "scripts/ik_controller.py",
+      "sha256": "b83fea33e52e0760f7d80cfb9a550cf2bf89747a6fd9f96fab0bfa4bea0dff84"
+    },
+    {
+      "path": "scripts/capture_d455.py",
+      "sha256": "600ba547b4b2d35e111d1bbb1b0a10e52b304751c76cb9db6cdc14cd382eb91d"
+    },
+    {
+      "path": "demo_manifest.yaml",
+      "sha256": "a64d6c11ce1d8e3b1c5400755dee8c92533fbc584f7e587e9079399a987edf54"
+    },
+    {
+      "path": "docs/ADDING_OBJECTS_GUI.md",
+      "sha256": "cd3b09ddbb2d27d52970b42c7b074d8abb81cf37c0223d46c20e02d6c4297017"
+    },
+    {
+      "path": "docs/DEMO_RUNBOOK.md",
+      "sha256": "f26efb97f50335b33d819c7d915b2b86ae8af29b81a3d766dcc28534598abaa6"
+    },
+    {
+      "path": "docs/JSON_EVIDENCE_GUIDE.md",
+      "sha256": "e2c456a07cf646c6276719ca2d84ed4ace93740105ec1e0bb078b28f0855b575"
+    },
+    {
+      "path": "validation/baseline/release_acceptance.json",
+      "sha256": "69f1e44c2334a3962fc3d8ba0b787be9d0400840f0501c5c29290370fc181e0e"
+    },
+    {
+      "path": "validation/baseline/golden/pose1_rgb_color.png",
+      "sha256": "f9dbcd130e9fff03889155516a14ab9c3a9a02dbd9bbdc36ea558c150f48099b"
+    },
+    {
+      "path": "validation/baseline/golden/pose1_rgb_left.png",
+      "sha256": "655df0a7906fbf0e5ccb7dc7101a98561bccc125ab14700d913539b6bec64feb"
+    },
+    {
+      "path": "validation/baseline/golden/pose1_rgb_right.png",
+      "sha256": "52ff226999a2dc7433e1e9062866e750a1108c2358a90c2f510ee41ecbf1ea18"
+    },
+    {
+      "path": "validation/baseline/golden/pose2_rgb_color.png",
+      "sha256": "2a2f56b36a98655e9e315d63e26553e48a9eca73db6f434e0d9cd7a515f16a6c"
+    },
+    {
+      "path": "validation/baseline/golden/pose2_depth_preview.png",
+      "sha256": "da5584a92f503e9d9fee1042a129b6063f8a46cc5bf11ddbcb38d88f99798f54"
+    }
+  ]
+}
