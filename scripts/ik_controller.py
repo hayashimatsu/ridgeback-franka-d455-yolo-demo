@@ -4,10 +4,12 @@ The controller follows `/World/IKTarget` while the Isaac Sim timeline is
 running. It commands only the seven Panda arm joints, preserves the mobile base,
 limits every update, and restores the captured clean pose on stop or failure.
 
-Public entry points are `start()`, `stop()`, `status()`, and `get_controller()`.
+Public entry points are `ik_follow_start()`, `ik_follow_stop()`,
+`ik_follow_status()`, and `ik_follow_subscription_count()`.
 """
 
 import builtins
+import json
 import math
 import traceback
 
@@ -15,6 +17,7 @@ import numpy as np
 
 import omni.kit.app
 import omni.timeline
+import omni.usd
 from isaacsim.core.experimental.prims import Articulation, XformPrim
 
 # ---------------------------------------------------------------------------
@@ -60,9 +63,7 @@ ROT_WEIGHT_RAMP_SCALE = 0.06  # m; pos_err_norm at/above this uses
 SIGMA_THRESHOLD = 0.05
 LAMBDA_MAX = 0.3
 
-# Static fallback pose (the authored clean joint state / drive target). Used by
-# stop()/on-error recovery only if a controller instance never captured a live
-# clean pose, for example when start() fails before initialization completes.
+# Static fallback pose for scenes without a root-layer clean-pose metadata value.
 R5_CLEAN_ARM_POSE = [
     0.0,
     0.5235987901687622,
@@ -72,6 +73,7 @@ R5_CLEAN_ARM_POSE = [
     1.5707963705062866,
     0.7853981852531433,
 ]
+CLEAN_ARM_POSE_METADATA_KEY = "demo_clean_arm_pose_rad"
 
 _REGISTRY_ATTR = "_ik_follow_controller_registry"
 
@@ -80,6 +82,23 @@ def _get_registry():
     if not hasattr(builtins, _REGISTRY_ATTR):
         setattr(builtins, _REGISTRY_ATTR, {"instance": None})
     return getattr(builtins, _REGISTRY_ATTR)
+
+
+def _configured_clean_arm_pose():
+    """Return a scene-specific clean pose, falling back to the M0 R5 pose."""
+    try:
+        stage = omni.usd.get_context().get_stage()
+        if stage is not None:
+            raw = stage.GetRootLayer().customLayerData.get(CLEAN_ARM_POSE_METADATA_KEY)
+            if isinstance(raw, str):
+                values = json.loads(raw)
+                if len(values) == len(ARM_JOINT_NAMES) and all(
+                    math.isfinite(float(value)) for value in values
+                ):
+                    return np.asarray(values, dtype=np.float64)
+    except Exception:
+        pass
+    return np.asarray(R5_CLEAN_ARM_POSE, dtype=np.float64)
 
 
 def _quat_conjugate(q):
@@ -214,12 +233,11 @@ class IKFollowController:
         hand_p, hand_q = hand.get_world_poses()
         target.set_world_poses(hand_p, hand_q)
 
-        # Snapshot of the arm's actual joint positions at start() time --
-        # used only to seed the q_cmd integrator below (so tracking begins
-        # from wherever the arm currently is). NOT used to decide what
-        # stop() restores to -- stop() always restores the static
-        # R5_CLEAN_ARM_POSE (see stop()).
-        clean_arm_targets = art.get_dof_positions().numpy()[0][arm_dof_indices].copy()
+        # Seed tracking from the actual live pose, but use the scene's immutable
+        # configured clean pose for posture recovery and stop(). This prevents a
+        # repeated start while moving from redefining the restore target.
+        live_arm_targets = art.get_dof_positions().numpy()[0][arm_dof_indices].copy()
+        clean_arm_targets = _configured_clean_arm_pose()
 
         self._art = art
         self._hand = hand
@@ -232,8 +250,8 @@ class IKFollowController:
         # Internal commanded-state integrator -- see module docstring for
         # why this must NOT be resynced to the measured/lagged joint
         # position on every step.
-        self._q_cmd = clean_arm_targets.copy()
-        self._posture_ref = np.array(R5_CLEAN_ARM_POSE, dtype=np.float64)
+        self._q_cmd = live_arm_targets
+        self._posture_ref = clean_arm_targets.copy()
         self._error_count = 0
         self._last_error = None
         self._step_count = 0
@@ -260,16 +278,11 @@ class IKFollowController:
             self._sub.unsubscribe()
             self._sub = None
         if restore and self._art is not None and self._arm_dof_indices is not None:
-            # Always restore the static, documented R5_CLEAN_ARM_POSE, not
-            # whatever pose happened to be captured at the most recent
-            # start() (which may be mid-tracking, arbitrarily far from any
-            # known-good configuration). This matches the handoff's
-            # requirement to restore "a known valid pose (r5 clean drive
-            # targets)" on stop/failure, and is what the lifecycle
-            # test (T5) checks for.
+            # Restore the scene-configured immutable clean pose, never the
+            # possibly mid-tracking pose observed at the most recent start().
             try:
                 self._art.set_dof_position_targets(
-                    R5_CLEAN_ARM_POSE, dof_indices=self._arm_dof_indices
+                    self._clean_arm_targets, dof_indices=self._arm_dof_indices
                 )
             except Exception:
                 pass

@@ -10,6 +10,10 @@
     "candidate_scene_path": "scenes/ridgeback_franka_d455_yolo_demo.usd",
     "candidate_initial_sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc",
     "candidate_step2_sha256": "9db2e99c9f121c6c28132bb2ffb09c21f6dc3005dd56ed2754ee6da8337c8e1a",
+    "accepted_scene_path": "scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd",
+    "accepted_scene_sha256": "092f9d445a9580946621601e4f918799e1959b9ad80302e1cbb9df67adfd6106",
+    "accepted_source_scene_sha256": "05329ddde64616b1bc05287520002e3c862942572225006232bfa76ee0b01758",
+    "accepted_at_utc": "2026-07-31T06:18:04Z",
     "factory_content_path": "scenes/m1_factory_content.usda",
     "factory_content_sha256": "4cb30f7854f486bd77f83b5bd47530ce2d920f006d82bcbb82f3047b69a5ff49",
     "step2_authored_at_utc": "2026-07-31T01:09:47.067090+00:00"

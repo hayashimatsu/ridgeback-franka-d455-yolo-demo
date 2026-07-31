@@ -3,7 +3,7 @@ version: 1.0.0
 status: live_gui_accepted
 
 scene:
-  path: scenes/ridgeback_franka_d455_demo.usd
+  path: scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd
 
 gui:
   startup_script: scripts/demo_start.py
@@ -61,4 +61,5 @@ measurement_report:
 acceptance:
   live_gui_required: true
   current_result: pass
-  reference_capture: outputs/captures/2026-0730-1/capture.json
+  reference_capture: validation/m1/capture.json
+  compact_record: validation/m1/acceptance.json

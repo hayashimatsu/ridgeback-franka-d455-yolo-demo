@@ -540,3 +540,335 @@ No execution has started. Entry gate M0 is blocked.
   access Isaac MCP, or modify the repository.
 - M1 remains `in_progress`; M1-S3 remains `ready` for the user's Claude Code
   Opus run. No runtime or USD operation occurred in this documentation update.
+
+## 2026-07-31T05:29:03Z — M1-S3 exact-hash public workflow: baseline gate FAIL
+
+- Task: `M1-S3` (`milestones/M1/tasks/M1-S3.md`), route `OPUS`, executed directly
+  by Claude Code Opus with no Sonnet delegation (bounded single-subsystem runtime
+  validation; delegation would add coordination cost without benefit).
+- Objective: validate the user-reviewed candidate through the documented public
+  operator workflow on its exact disk hash and produce runtime/capture/visual/
+  cleanup/immutability evidence without editing or saving any USD.
+- Initial state: Git `main` at `4cc0cf1dc5fcd79ba5cf966971076321db0c5979`, working
+  tree clean. Disk hashes matched all authoritative facts: protected baseline
+  `a724cd7d...`, candidate `05329ddd...`, factory content `4cb30f78...`, catalog
+  `97cdeb31...`. Isaac MCP `get_scene_info` returned `pong` (Assets 6.0). Active
+  stage was already the candidate at `05329ddd`, timeline stopped, root dirty from
+  documented runtime/render state.
+- Opus strategy: three-channel preflight; clean reopen of the exact candidate;
+  record pre-Play authored state; Play + settle; run the public `demo_start.py`
+  exactly (module-level `demo_start()` on exec); keep IKTarget unmoved; one public
+  `demo_capture()`; public stop; verify cleanup, hashes, and images directly.
+- Clean reopen: `open_stage` produced a fresh `stage_id` (9223002 -> 9223003);
+  active root = candidate at exact `05329ddd`, timeline stopped, all required
+  prims valid. Freshly opened root still reports `dirty=true` (Kit reopen/render
+  behavior) and was never saved. Both USD disk hashes unchanged for the whole run.
+- Prims/functions exercised: `/World/ridgeback_franka` articulation (7 arm
+  joints), `/World/ridgeback_franka/panda_hand`, `/World/IKTarget`, the three
+  D455 cameras under `.../RSD455/`, and `/World/Factory`; public
+  `demo_start()`/`ik_follow_start()`/`demo_capture()`/`demo_stop()`.
+- Runtime observations (all PASS):
+  - Play stable; arm holds authored R5 pose; max seven-joint startup delta
+    `6.6e-04 rad`; no unexpected jump.
+  - `demo_start()` returned `ready`; IK `running`, `error_count=0`,
+    `pos_error_norm=3.1e-07 m`, `rot_error_norm=0`; exactly one IK subscription.
+  - IKTarget not moved by the operator. `ik_follow_start()` snapped IKTarget onto
+    the current hand pose (documented no-arm-jump behavior): IKTarget shifted
+    `0.570 m` and now coincides with the hand (`3.1e-07 m`); wrist/camera view
+    unchanged (`<1e-6 m`). Observation for Codex: the authored IKTarget pose is
+    ~0.567 m from the authored hand pose, so the snap is large; the arm/camera are
+    unaffected, but the authored IKTarget/hand consistency the user asked about is
+    not yet met.
+  - `demo_capture()` wrote non-black left/right/color RGB, full-frame valid left
+    depth (307200 px), overlays, and JSON; candidate hash unchanged during
+    capture; IKTarget hidden during capture and restored to `inherited`.
+  - `demo_stop()` clean: subscription count 0, timeline stopped, IKTarget visible.
+- Task-level acceptance: FAIL on the stereo-baseline gate. `demo_capture()`
+  reported `fail` with `stereo baseline 0.336300 m is outside tolerance`
+  (required `0.095 m +/- 0.002 m`, PROJECT_PROFILE gate 10; also compromises gate
+  6 world-coordinate fusion and gate 9 GUI usefulness, which both rely on the
+  left camera).
+- Root cause (forensic): the candidate ROOT layer
+  `scenes/ridgeback_franka_d455_yolo_demo.usd` authors an override for the LEFT
+  camera `xformOp:translate = (0.3319864, -0.0017097, -0.0214719)`, displacing it
+  ~0.332 m along the mount X axis. The D455 asset default (correct) is
+  `(0.0, -0.0475, 0.0)`. The right camera's root override `(0.0, 0.0475, -2.3e-07)`
+  matches the asset default and is benign. Prim:
+  `/World/ridgeback_franka/panda_hand/d455_camera/RSD455/Camera_OmniVision_OV9782_Left`.
+  Step2 candidate `9db2e99c` measured `0.09504872 m`; the user-reviewed save
+  `05329ddd` introduced this left-camera displacement.
+- Visual review (direct): `rgb_left.png` and `depth_preview.png` show the D455
+  housing occupying the frame center — the primary perception camera is
+  self-occluded and unusable. `rgb_color.png` (correctly placed color camera)
+  shows the intended clean full three-tier rack with representative five-class
+  objects, confirming the scene content itself is good and the defect is isolated
+  to the left-camera placement.
+- Evidence paths: `validation/tmp/claude_m1_s3_result.json` (compact result) and
+  the per-step envelopes `validation/tmp/m1_s3_{preflight,open_candidate,
+  open_verify,pre_play,post_play_pre_ik,demo_start,capture,camera_rig,
+  left_cam_layer,demo_stop}.json`; capture at `outputs/captures/2026-0731-6/`.
+- Failed probes / retries: every `execute_script` returned the known Pydantic
+  `string_type` wrapper error after the payload executed successfully; each result
+  was read from a fresh scratch envelope written before the payload returned. One
+  initial clean-open script raised a benign unpack error (`open_stage` returns a
+  bool, not a tuple) after the open itself executed; a follow-up verify probe
+  confirmed the fresh candidate stage. No runtime probe failure otherwise.
+- Files touched (tracked): only this `milestones/M1/LOG.md` entry. Untracked/ignored
+  only: `validation/tmp/*` envelopes and `outputs/captures/2026-0731-6/`.
+- Stop-condition outcome: reached a stop condition — the capture metadata / gate
+  proves the candidate fails a hard acceptance gate. Per M1-S3 forbidden actions I
+  did not edit or save any USD, did not move IKTarget, and did not touch
+  `STATUS.md`/`CURRENT.md`. Ending Git status: working tree clean except this log
+  entry; no commit, no push. Protected baseline `a724cd7d...` and candidate
+  `05329ddd...` unchanged on disk.
+- Handoff status: `needs_review` with acceptance `fail`. Points for Codex review:
+  (1) confirm the left-camera root override and correct value `(0.0, -0.0475, 0.0)`;
+  (2) decide the bounded correction task (new candidate revision resetting the
+  left-camera translate) — outside M1-S3 authority; (3) re-run the public workflow
+  to confirm baseline `0.095 m` and a clean left view; (4) optionally reconcile the
+  authored IKTarget/hand pose so the startup snap is small.
+- Waiting for Codex review; did not start another task.
+
+## 2026-07-31T05:55:00Z — Codex independent review of M1-S3
+
+- Review scope: independently reviewed Claude Code Opus execution of
+  `milestones/M1/tasks/M1-S3.md` under
+  `docs/CODEX_M1_S3_REVIEW_PROMPT.md`. No Claude session was launched or
+  resumed, no USD was saved or edited, and no correction was implemented.
+- Git and authority review:
+  - Branch `main`, HEAD `4cc0cf1dc5fcd79ba5cf966971076321db0c5979`.
+  - The only tracked change from the Claude run is the append-only 88-line M1
+    LOG entry. Capture 6 and scratch envelopes are ignored. No unauthorized
+    USD, catalog, script, STATUS, CURRENT, MCP configuration, commit, or push
+    change was found; `git diff --check` passed.
+  - `claude_m1_s3_result.json` incorrectly states both that the ending working
+    tree was clean and that no tracked file changed, although the required LOG
+    append is present. This bookkeeping inconsistency does not alter the runtime
+    failure but must not be repeated in final acceptance evidence.
+- Independent preflight and runtime review:
+  - The workflow preflight script reproduced the known sandbox-only
+    `Connection closed`; no registration was changed. Approved sandbox-external
+    `claude mcp list` independently reported `isaac-sim` connected.
+  - Direct Codex Isaac MCP returned `pong`. A fresh read-only Isaac scratch
+    probe confirmed the exact candidate active, stopped timeline, all required
+    prims valid, root dirty, protected hash `a724cd7d...`, and candidate hash
+    `05329ddd...`. The execute-script wrapper produced the documented response
+    schema error after both probes completed; fresh envelopes proved execution.
+  - Live callback count was unavailable because the stopped session no longer
+    exposed the checked-in helper in the execution namespace. Claude's fresh
+    `demo_stop` envelope records count zero; this cleanup observation is accepted
+    for this failed run but must be rechecked in the correction acceptance.
+- Hash and structure review:
+  - Protected baseline remains
+    `a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc`.
+  - Candidate remains
+    `05329ddde64616b1bc05287520002e3c862942572225006232bfa76ee0b01758`.
+  - Factory content remains `4cb30f78...`; catalog remains `97cdeb31...`.
+  - Fresh in-Kit structural validation confirmed 20 display objects, four per
+    class, 30 library assets, zero factory rigid bodies, and no missing prims.
+    Its overall result is `fail` only because the catalog intentionally retains
+    historical `candidate_step2_sha256=9db2e99c...` while the current candidate
+    is `05329ddd...`; final lineage has not yet been accepted or updated.
+- Public workflow evidence review:
+  - `Play -> scripts/demo_start.py -> demo_capture() -> demo_stop() -> stopped
+    timeline` is supported by fresh, ordered envelopes. `demo_start()` returned
+    ready, controller errors were zero, one subscription was observed while
+    running, seven-joint startup delta was at most `0.0006574 rad`, capture used
+    the exact candidate hash before and after, target visibility was restored,
+    and stop recorded zero subscriptions.
+  - The operator did not manually move IKTarget, but public startup moved it
+    `0.569945 m` onto the current hand pose. Therefore the arm avoided a visible
+    snap, yet the authored Panda/IKTarget consistency explicitly requested by
+    the user remains `fail`; the current scene depends on runtime target
+    reconciliation rather than matching authored poses.
+- Camera, capture, and direct visual review:
+  - Capture `outputs/captures/2026-0731-6/` is fresh and exact-hash but has
+    `status=fail`. Stereo baseline is `0.3362998 m`, outside the required
+    `0.095 +/- 0.002 m` gate.
+  - Independent USD property-stack inspection confirms the candidate root
+    authors left-camera translate
+    `(0.3319864, -0.0017097, -0.0214719)` over the D455 asset value
+    `(0.0, -0.0475, 0.0)`. The right camera remains approximately
+    `(0.0, 0.0475, 0.0)`.
+  - Direct image inspection confirms `rgb_left.png` and `depth_preview.png` are
+    dominated by the D455/robot housing and are not a useful primary perception
+    view. `rgb_color.png` and `rgb_right.png` show the intended rack framing and
+    representative contents, so the scene content is useful but the required
+    left RGB-D channel is not.
+  - Raw left axial, right axial, and left radial arrays are all `480x640` with
+    307,200 finite positive pixels. Valid numeric depth does not rescue the
+    capture because it measures a self-occluded, geometrically invalid camera
+    view and the stereo geometry is out of tolerance.
+- Gate classification:
+  - Exact active stage/hash and USD immutability: `pass`.
+  - Public operator lifecycle, Play stability, controller errors, and capture
+    uniqueness: `pass` for this run.
+  - Authored Panda/IKTarget pose consistency: `fail`.
+  - D455 stereo baseline and useful left RGB/depth framing: `fail`.
+  - Factory/catalog structure: `pass`; final candidate lineage: `not_run`.
+  - Final clean-reopen release acceptance, compact M1 acceptance record,
+    staged acceptance diff, commit, push, and M1 handoff: `not_run`.
+- Decision: `M1-S3 fail`; M1 remains incomplete. The intended factory rack and
+  five-class proxy content exist and are visible from color/right cameras, but
+  the primary left D455 sensor is misplaced and the authored IKTarget is not
+  aligned with the static Panda hand pose. No M2 work is authorized or started.
+- Next decision for discussion with the user: whether one bounded Claude
+  correction task should create a new candidate revision that restores the left
+  camera to the D455 asset transform and also authors a Panda/IKTarget-consistent
+  reviewed static pose, followed by a complete exact-hash public-workflow rerun.
+  Per the review contract, no new task file or STATUS/CURRENT transition is made
+  before that product/behavior instruction is agreed.
+
+## 2026-07-31T06:22:30Z — Codex-only M1 correction and final acceptance
+
+- Authority and objective: the user explicitly suspended Claude Code delegation
+  for this stage and authorized Codex to complete the reviewed correction. The
+  objective was to preserve both existing candidate USDs, create a new revision,
+  restore valid D455 stereo geometry, author a Panda/IKTarget-consistent static
+  view, and rerun exact-hash public workflow acceptance without entering M2.
+- Preflight:
+  - The project workflow skill and required references were reread. The project
+    preflight reproduced sandbox-only Claude `Connection closed`; approved
+    sandbox-external `claude mcp list` reported `isaac-sim` connected.
+  - Direct Codex Isaac MCP returned `pong`. The active reviewed candidate was
+    exact hash `05329ddd...`, timeline stopped, required prims valid, and root
+    dirty only from documented runtime/render state. Protected baseline remained
+    `a724cd7d...`.
+- Critical diagnosis and correction strategy:
+  - A first monolithic 3000-frame IK solve was terminated by the MCP 300-second
+    timeout without a valid result. Cleanup proved no controller remained and
+    timeline stopped; no USD changed. This probe is retained as failed evidence.
+  - The failure was test design, not proof of unreachable IK: placing thousands
+    of GUI/render `app.update()` calls inside one MCP request made solver progress,
+    transport timeout, and response-wrapper behavior indistinguishable.
+  - The solve was repeated correctly as one short start/mutation call plus short
+    read-only polls while Isaac updated normally. The original reviewed target
+    converged in about 20 seconds to `0.611 mm` position and `0.00113 rad`
+    orientation residual with zero controller errors. The solved seven-joint
+    pose was recorded; joint4 is close to its lower limit.
+  - A runtime-only framing capture at that solved pose produced Capture 8 and was
+    directly inspected. Unlike the downward R5 view, it shows the complete
+    three-tier rack and representative contents through the corrected left D455.
+- Authored changes:
+  - Added repeatable `scripts/build_m1_s3_revision.py`. It asserts source hash
+    `05329ddd...`, never overwrites an existing revision, restores the left
+    camera local translate to `(0.0, -0.0475, 0.0)`, preserves the reviewed
+    IKTarget pose, and authors matching Panda state/drive targets.
+  - An intermediate R2 proved stereo repair but retained the downward R5 pose.
+    It was moved to ignored
+    `validation/tmp/ridgeback_franka_d455_yolo_demo_m1_r2_probe.usd` and is not a
+    release artifact.
+  - Built accepted
+    `scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd`, SHA-256
+    `092f9d445a9580946621601e4f918799e1959b9ad80302e1cbb9df67adfd6106`.
+  - Updated `scripts/ik_controller.py` to read immutable scene-specific clean-arm
+    metadata for posture recovery and stop restore. Scenes without the metadata
+    retain the M0 R5 fallback, so the protected baseline behavior is not
+    redefined.
+- Public exact-hash workflow and visual result:
+  - Added repeatable `validation/run_m1_r3_acceptance.py` after two inline
+    harness probes exposed incorrect private function names before capture. The
+    checked-in harness validates active path/hash, uses only public
+    `demo_start.py`, `demo_capture()`, and `demo_stop()`, never moves IKTarget,
+    and guarantees callback/timeline cleanup in `finally`.
+  - Clean reopen produced a new stage ID and exact R3 path. Public start returned
+    ready with one subscription, zero controller errors, maximum joint startup
+    delta `0.000557 rad`, target translation delta `0.684 mm`, target orientation
+    delta `0.001044 rad`, and target-to-hand error `0.0075 mm`.
+  - Capture 9 passed at exact R3 hash before/after. Stereo baseline was
+    `0.0950000018 m`; left axial depth contained 236,907 finite positive pixels;
+    IKTarget visibility returned to inherited.
+  - Direct review of left/right/color RGB and depth confirmed a useful frontal
+    view of the complete three-tier rack and representative contents, with no
+    D455 self-occlusion. Durable media are under `validation/m1/golden/`.
+  - `demo_stop()` removed the subscription. An immediate timeline read remained
+    true until Kit processed updates; a dedicated cleanup probe performed five
+    updates and confirmed controller absent and timeline stopped. A final clean
+    reopen left the accepted R3 stage active and stopped; it was never saved.
+- Camera-follow clarification and evidence:
+  - `demo_capture()` does not command motion; it waits for the current IK pose,
+    hides IKTarget during readback, captures, and restores visibility. The D455
+    follows because it is rigidly attached to `panda_hand`, which follows
+    `/World/IKTarget` while the controller is running.
+  - A runtime-only second pose moved IKTarget world Y by `30 mm`. Hand Y moved
+    `29.9994 mm`, left-camera Y moved `29.9991 mm`, final IK position error was
+    `0.0021 mm`, and controller errors remained zero. Cleanup and clean reopen
+    discarded the runtime offset without a USD save.
+- MCP/capture latency diagnosis:
+  - Capture 7 files and the complete workflow envelope were timestamped within
+    roughly three seconds, but the MCP client continued waiting for more than
+    200 seconds. Therefore the long wait was not `demo_capture()`; it was the
+    known `execute_script` response/wrapper channel stalling after payload
+    completion.
+  - Subsequent operations stopped waiting as soon as a fresh complete envelope
+    existed. Missing or incomplete envelopes remain failures; transport stall is
+    never counted as capture duration or success by itself.
+- Structural/catalog acceptance:
+  - Catalog final lineage points to R3 while preserving historical initial,
+    Step2, and reviewed-source hashes.
+  - Fresh in-Kit validation passed: 20 display objects, four per class, 30
+    library assets, zero factory rigid bodies, no missing prims, valid left
+    camera transform, and seven clean-pose values matching every joint state and
+    drive target.
+  - The Step1 validator still reports only its intentionally historical
+    byte-identical-candidate premise; it independently confirms 30 assets, six
+    per class, and disjoint 15/10/5 train/validation/held-out identities.
+- Durable evidence: `validation/m1/acceptance.json` validated against the compact
+  acceptance schema; `validation/m1/capture.json`; and reviewed RGB/depth under
+  `validation/m1/golden/`.
+- USD hashes after all work:
+  - Protected baseline: `a724cd7d...` unchanged.
+  - User-reviewed source candidate: `05329ddd...` unchanged.
+  - Accepted M1 R3: `092f9d44...` unchanged through capture and follow checks.
+- Acceptance result: M1 `pass`; M2 `not_run`. M1 STATUS is complete and CURRENT
+  has no executable task pending user discussion of M2.
+- Failed probes and limitations:
+  - One monolithic IK call timed out at 300 seconds; no result was accepted.
+  - One builder temp file initially ended in `.usd.tmp`, so USD could not infer
+    its format; corrected to `.tmp.usd` with no residual file.
+  - Two inline harness probes used nonexistent internal names and stopped before
+    capture; the checked-in acceptance harness replaced them.
+  - Isaac MCP continues to emit response-schema errors or occasionally stall
+    after successful payload completion. Fresh timestamped scratch envelopes are
+    required authority.
+  - Proxy-asset redistribution and near-limit joint4 are recorded in the compact
+    acceptance limitations.
+- Modified tracked files: accepted R3 scene, revision builder, controller,
+  repeatable acceptance harness, catalog lineage, M1 acceptance/golden evidence,
+  README/profile/manifest/runbook pointers, and M1 continuity documents.
+- Commit SHA: pending staged-diff inspection. No M2 task was authored or run.
+
+## 2026-07-31T06:25:40Z — Final harness quality addendum
+
+- Staged-diff review found three pre-commit quality issues: the controller
+  module docstring named obsolete private functions, the checked-in acceptance
+  harness read timeline state before Kit processed the stop event, and the
+  revision builder used a variable authored timestamp in root metadata.
+- Corrected the controller documentation to the real `ik_follow_*` public API;
+  made the harness process five Kit updates after stop in both the main and
+  `finally` cleanup paths; and fixed the builder metadata timestamp to the exact
+  accepted R3 authored value so rebuilding the same source does not intentionally
+  introduce timestamp variance.
+- Reran the checked-in harness from the clean-open exact R3 stage. Capture 10
+  supersedes Capture 9 as durable acceptance evidence: public start/capture/stop
+  passed, callback count ended at zero, timeline ended stopped inside the harness,
+  baseline was `0.0950000018 m`, 236,907 left-depth pixels were valid, and the R3
+  hash remained `092f9d44...`.
+- Directly reviewed Capture 10 left RGB; it retains the accepted complete
+  three-tier rack framing. Updated `validation/m1/capture.json` and golden media
+  from Capture 10; ignored Capture 9 remains only as historical scratch output.
+- Commit SHA: still pending final staged-diff inspection. M2 remains `not_run`.
+
+## 2026-07-31T06:27:30Z — Deterministic rebuild and final GUI state
+
+- Rebuilt the accepted scene from the unchanged `05329ddd...` reviewed source
+  into ignored `validation/tmp/m1_r3_rebuild_check.usd` using the checked-in
+  builder. The rebuild SHA-256 exactly matched accepted R3:
+  `092f9d445a9580946621601e4f918799e1959b9ad80302e1cbb9df67adfd6106`.
+- The MCP wrapper stalled after the complete rebuild envelope existed; waiting
+  was stopped immediately under the documented envelope-authority rule.
+- Clean reopened accepted R3 one final time after Capture 10. Active stage ID is
+  `9223008`, exact R3 path is active, timeline is stopped, and no callback or
+  runtime target offset is retained. Root reports the known Kit dirty state and
+  was not saved.
+- Commit SHA: pending the final staged diff below. M2 remains `not_run`.

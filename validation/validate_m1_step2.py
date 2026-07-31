@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 from collections import Counter
 from datetime import datetime, timezone
@@ -16,7 +17,6 @@ from pxr import Semantics, Usd, UsdPhysics
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 BASELINE_PATH = PROJECT_ROOT / "scenes/ridgeback_franka_d455_demo.usd"
-CANDIDATE_PATH = PROJECT_ROOT / "scenes/ridgeback_franka_d455_yolo_demo.usd"
 CONTENT_PATH = PROJECT_ROOT / "scenes/m1_factory_content.usda"
 CATALOG_PATH = PROJECT_ROOT / "config/object_catalog.yaml"
 RESULT_PATH = Path("/tmp/m1_step2_validation.json")
@@ -42,16 +42,22 @@ def validate_m1_step2() -> dict[str, object]:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     failures: list[str] = []
 
-    if active_path != CANDIDATE_PATH:
-        failures.append(f"active stage is not the candidate: {active_path}")
+    lineage = catalog["scene_lineage"]
+    candidate_path = PROJECT_ROOT / lineage.get(
+        "accepted_scene_path", lineage["candidate_scene_path"]
+    )
+    expected_candidate_sha = lineage.get(
+        "accepted_scene_sha256", lineage["candidate_step2_sha256"]
+    )
+    if active_path != candidate_path:
+        failures.append(f"active stage is not the accepted candidate: {active_path}")
     baseline_sha = _sha256(BASELINE_PATH)
-    candidate_sha = _sha256(CANDIDATE_PATH)
+    candidate_sha = _sha256(candidate_path)
     content_sha = _sha256(CONTENT_PATH)
     if baseline_sha != EXPECTED_BASELINE_SHA256:
         failures.append(f"protected baseline hash mismatch: {baseline_sha}")
-    lineage = catalog["scene_lineage"]
-    if candidate_sha != lineage.get("candidate_step2_sha256"):
-        failures.append("candidate Step2 hash does not match catalog lineage")
+    if candidate_sha != expected_candidate_sha:
+        failures.append("candidate hash does not match catalog accepted lineage")
     if content_sha != lineage.get("factory_content_sha256"):
         failures.append("factory content hash does not match catalog lineage")
     if CONTENT_PATH.name not in root.subLayerPaths:
@@ -126,6 +132,36 @@ def validate_m1_step2() -> dict[str, object]:
     if rigid_body_prims:
         failures.append(f"unexpected factory rigid bodies: {rigid_body_prims}")
 
+    left_camera = stage.GetPrimAtPath(
+        "/World/ridgeback_franka/panda_hand/d455_camera/RSD455/"
+        "Camera_OmniVision_OV9782_Left"
+    )
+    left_translate = left_camera.GetAttribute("xformOp:translate").Get()
+    if left_translate is None or max(
+        abs(float(a) - b) for a, b in zip(left_translate, (0.0, -0.0475, 0.0))
+    ) > 1e-9:
+        failures.append(f"left camera local translate is invalid: {left_translate}")
+
+    clean_pose_raw = root.customLayerData.get("demo_clean_arm_pose_rad")
+    try:
+        clean_pose = [float(value) for value in json.loads(clean_pose_raw)]
+    except Exception:
+        clean_pose = []
+    if len(clean_pose) != 7 or not all(math.isfinite(value) for value in clean_pose):
+        failures.append("accepted scene is missing a valid seven-joint clean pose")
+    else:
+        for index, expected_rad in enumerate(clean_pose, start=1):
+            joint = stage.GetPrimAtPath(
+                f"/World/ridgeback_franka/panda_link{index - 1}/panda_joint{index}"
+            )
+            for name in (
+                "drive:angular:physics:targetPosition",
+                "state:angular:physics:position",
+            ):
+                observed_deg = joint.GetAttribute(name).Get()
+                if observed_deg is None or abs(math.radians(observed_deg) - expected_rad) > 1e-6:
+                    failures.append(f"panda_joint{index} {name} disagrees with clean pose")
+
     result = {
         "schema": "m1-step2-validation-v1",
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
@@ -140,6 +176,8 @@ def validate_m1_step2() -> dict[str, object]:
         "display_class_counts": dict(sorted(class_counts.items())),
         "library_asset_count": len(library_assets),
         "factory_rigid_body_count": len(rigid_body_prims),
+        "left_camera_translate_m": list(left_translate) if left_translate is not None else None,
+        "clean_arm_pose_rad": clean_pose,
         "missing_prims": missing_prims,
         "failures": failures,
     }

@@ -1,0 +1,147 @@
+{
+  "schema": "d455-demo-capture-v1",
+  "status": "pass",
+  "failures": [],
+  "run_id": "2026-0731-10",
+  "timestamp_utc": "20260731T062517805126Z",
+  "daily_sequence": 10,
+  "label": null,
+  "stage": {
+    "path": "/home/rci05/User/Lin/test_codex_claude_mcp_1/ridgeback-franka-d455-yolo-demo/scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd",
+    "sha256_before": "092f9d445a9580946621601e4f918799e1959b9ad80302e1cbb9df67adfd6106",
+    "sha256_after": "092f9d445a9580946621601e4f918799e1959b9ad80302e1cbb9df67adfd6106",
+    "unchanged_during_capture": true
+  },
+  "output_directory": "/home/rci05/User/Lin/test_codex_claude_mcp_1/ridgeback-franka-d455-yolo-demo/outputs/captures/2026-0731-10",
+  "resolution": {
+    "width": 640,
+    "height": 480
+  },
+  "timeline_playing": true,
+  "ik_settle": {
+    "settled": true,
+    "frames": 5,
+    "controller_status": {
+      "running": true,
+      "step_count": 103,
+      "error_count": 0,
+      "last_error": {
+        "pos_error_norm": 2.0633669919334352e-05,
+        "rot_error_norm": 0.00012205808312406498
+      }
+    }
+  },
+  "ik_target_hidden_during_capture": true,
+  "ik_target_visibility_after_capture": "inherited",
+  "render_method": "app_update_fallback",
+  "rgb_readback": {
+    "left": {
+      "mean_at_each_attempt": [
+        163.28602430555554
+      ],
+      "retries": 0,
+      "valid": true
+    },
+    "right": {
+      "mean_at_each_attempt": [
+        163.44838324652778
+      ],
+      "retries": 0,
+      "valid": true
+    },
+    "color": {
+      "mean_at_each_attempt": [
+        162.5887228732639
+      ],
+      "retries": 0,
+      "valid": true
+    }
+  },
+  "camera_frames": {
+    "left": {
+      "position_m": [
+        0.22879453003406525,
+        0.002455473877489567,
+        0.8934164643287659
+      ],
+      "right": [
+        0.017651644497901728,
+        -0.999815286049571,
+        -0.007603501044528473
+      ],
+      "up": [
+        0.2687587777822256,
+        -0.002580133619566273,
+        0.9632040605580467
+      ],
+      "forward": [
+        0.9630457511367451,
+        0.01904560139848387,
+        -0.26866363037231616
+      ]
+    },
+    "right": {
+      "position_m": [
+        0.23047137260437012,
+        -0.09252697974443436,
+        0.8926939368247986
+      ],
+      "right": [
+        0.017651644497901728,
+        -0.999815286049571,
+        -0.007603501044528473
+      ],
+      "up": [
+        0.2687587777822256,
+        -0.002580133619566273,
+        0.9632040605580467
+      ],
+      "forward": [
+        0.9630457511367451,
+        0.01904560139848387,
+        -0.26866363037231616
+      ]
+    },
+    "color": {
+      "position_m": [
+        0.22983597218990326,
+        -0.05653362721204758,
+        0.8929678797721863
+      ],
+      "right": [
+        0.017651644497901728,
+        -0.999815286049571,
+        -0.007603501044528473
+      ],
+      "up": [
+        0.2687587777822256,
+        -0.002580133619566273,
+        0.9632040605580467
+      ],
+      "forward": [
+        0.9630457511367451,
+        0.01904560139848387,
+        -0.26866363037231616
+      ]
+    }
+  },
+  "stereo_baseline_m": 0.09500000180547633,
+  "depth": {
+    "axial_semantics": "distance_to_image_plane",
+    "radial_semantics": "distance_to_camera",
+    "left_valid_pixel_count": 236907
+  },
+  "setup": {
+    "status": "already_setup",
+    "stage_id": 9223007
+  },
+  "measurement": {
+    "status": "pass",
+    "capture_id": "2026-0731-10",
+    "sensor_region_count": 33,
+    "reported_target_count": 28,
+    "excluded_environment_region_count": 5,
+    "output": "/home/rci05/User/Lin/test_codex_claude_mcp_1/ridgeback-franka-d455-yolo-demo/outputs/captures/2026-0731-10/measurements.json",
+    "summary_output": "/home/rci05/User/Lin/test_codex_claude_mcp_1/ridgeback-franka-d455-yolo-demo/outputs/captures/2026-0731-10/summary.json"
+  }
+}

@@ -7,21 +7,22 @@ fusion to report visible object surfaces in world coordinates.
 
 ## Project status
 
-**Milestone M0 complete: the reviewed D455 source foundation has passed its
-clean-reopen runtime acceptance; YOLO and factory-scene implementation have not
-started.**
+**Milestone M1 complete: the immutable D455 baseline and the derived factory
+scene/object catalog have passed clean-reopen runtime, visual, IK, stereo, and
+hash acceptance. Dataset generation and YOLO implementation have not started.**
 
-The repository contains a user-reviewed derivative of the source USD, imported
-runtime scripts, a historical compact acceptance record, and reviewed golden images. It
-intentionally does not yet claim that the YOLO model, synthetic dataset,
-factory shelf scene, or real-time perception pipeline exists. Planned artifacts
-are marked as such in [PROJECT_PROFILE.md](PROJECT_PROFILE.md), and baseline
-hashes are recorded in
+The accepted M1 scene is
+`scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd` with SHA-256
+`092f9d44...`. It contains the static factory shelf, 20 semantic display
+objects, and a 30-identity five-class catalog. It intentionally does not yet
+claim that a YOLO model, synthetic dataset, or real-time perception pipeline
+exists. Planned artifacts are marked as such in
+[PROJECT_PROFILE.md](PROJECT_PROFILE.md), and baseline hashes are recorded in
 [`validation/baseline/provenance.json`](validation/baseline/provenance.json).
 The reviewed baseline is commit `6d3e435` with scene SHA-256 `a724cd7d...`.
 Its clean-reopen evidence is recorded in
-`validation/baseline/clean_reopen_check.json`; M1 must derive a new scene rather
-than modify this baseline.
+`validation/baseline/clean_reopen_check.json`. M1 evidence is consolidated in
+`validation/m1/acceptance.json`.
 
 ## Confirmed first release scope
 

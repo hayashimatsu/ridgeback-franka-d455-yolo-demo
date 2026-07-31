@@ -22,7 +22,7 @@
 
 ## 預期 GUI 操作流程
 
-1. 開啟預計建立的 `scenes/ridgeback_franka_d455_yolo_demo.usd`。
+1. 開啟已接受的 `scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd`。
 2. 按下 **Play**。
 3. 在 Isaac Sim Script Editor 執行預計建立的啟動 script；預設入口為 `scripts/demo_start.py` 中的 `demo_start()`。
 4. 拖曳或旋轉 `/World/IKTarget`，讓手腕 D455 改變觀察位置。
@@ -63,10 +63,10 @@
 
 ## 預計建立的內容
 
-以下項目尚未建立，或只有需要擴充的 M0 基準版本：
+M1 場景與 catalog 已建立；其餘項目尚未建立，或只有需要擴充的基準版本：
 
-- `scenes/ridgeback_franka_d455_yolo_demo.usd`
-  - 從基準場景建立的新 revision；
+- `scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd`
+  - 從使用者 review candidate 建立且通過 M1 acceptance 的新 revision；
   - 加入工廠貨架與五類目標資產；
   - 目標物預設可不受重力，但必須位於相機有效深度與可視範圍內。
 - `config/object_catalog.yaml`

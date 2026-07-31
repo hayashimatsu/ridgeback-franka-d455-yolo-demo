@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "run_id": "m1-r3-2026-0731-10",
+  "timestamp_utc": "2026-07-31T06:25:20Z",
+  "result": "pass",
+  "stage": {
+    "path": "scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd",
+    "sha256": "092f9d445a9580946621601e4f918799e1959b9ad80302e1cbb9df67adfd6106",
+    "source_path": "scenes/ridgeback_franka_d455_yolo_demo.usd",
+    "source_sha256": "05329ddde64616b1bc05287520002e3c862942572225006232bfa76ee0b01758",
+    "protected_baseline_sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc"
+  },
+  "environment": {
+    "isaac_sim_assets_version": "6.0",
+    "physics_backend": "PhysX articulation",
+    "timeline_final_state": "stopped",
+    "callback_count": 0
+  },
+  "checks": [
+    {
+      "name": "factory_scene_and_catalog",
+      "result": "pass",
+      "observed": {
+        "display_objects": 20,
+        "display_objects_per_class": 4,
+        "library_assets": 30,
+        "assets_per_class": 6,
+        "factory_rigid_bodies": 0
+      },
+      "criterion": "Five fixed classes, at least six identities per class, 20 semantic display objects, and a static factory scene.",
+      "artifacts": [
+        "config/object_catalog.yaml",
+        "scenes/m1_factory_content.usda"
+      ]
+    },
+    {
+      "name": "public_operator_workflow",
+      "result": "pass",
+      "observed": {
+        "demo_start_status": "ready",
+        "ik_error_count": 0,
+        "subscription_count_running": 1,
+        "subscription_count_after_stop": 0,
+        "timeline_after_cleanup": "stopped"
+      },
+      "criterion": "Clean reopen, Play, public demo_start.py, one capture, public demo_stop, zero remaining callbacks, and stopped timeline.",
+      "artifacts": [
+        "validation/run_m1_r3_acceptance.py",
+        "validation/m1/capture.json"
+      ]
+    },
+    {
+      "name": "authored_pose_startup_stability",
+      "result": "pass",
+      "observed": {
+        "maximum_joint_startup_delta_rad": 0.0005570286605827146,
+        "iktarget_startup_translation_delta_m": 0.0006844000920601626,
+        "iktarget_startup_orientation_delta_rad": 0.0010436370134814454,
+        "target_to_hand_after_start_m": 0.000007460186679963954
+      },
+      "criterion": "No visible arm snap; authored Panda and IKTarget agree within 1 mm translation and 0.002 rad orientation at startup.",
+      "artifacts": [
+        "scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd"
+      ]
+    },
+    {
+      "name": "d455_capture_geometry",
+      "result": "pass",
+      "observed": {
+        "stereo_baseline_m": 0.09500000180547633,
+        "left_finite_positive_depth_pixels": 236907,
+        "resolution": [640, 480],
+        "stage_hash_unchanged": true,
+        "ik_target_visibility_restored": "inherited"
+      },
+      "criterion": "Stereo baseline 0.095 m +/- 0.002 m, valid raw depth, restored target visibility, and unchanged USD hash.",
+      "artifacts": [
+        "validation/m1/capture.json",
+        "validation/m1/golden/depth_preview.png"
+      ]
+    },
+    {
+      "name": "visual_full_rack_framing",
+      "result": "pass",
+      "observed": "Left, right, and color RGB directly reviewed; all show the complete three-tier rack and representative contents without D455 self-occlusion.",
+      "criterion": "The primary left D455 view is useful for the intended full-rack perception scene.",
+      "artifacts": [
+        "validation/m1/golden/rgb_left.png",
+        "validation/m1/golden/depth_preview.png"
+      ]
+    },
+    {
+      "name": "camera_follows_iktarget",
+      "result": "pass",
+      "observed": {
+        "iktarget_world_y_delta_m": 0.03,
+        "hand_world_y_delta_m": 0.029999369755387306,
+        "left_camera_world_y_delta_m": 0.029999068938195705,
+        "final_ik_position_error_m": 0.000002070403525067377,
+        "controller_error_count": 0
+      },
+      "criterion": "A distinct reachable runtime IKTarget pose moves both panda_hand and the rigidly attached left camera without controller errors.",
+      "artifacts": []
+    },
+    {
+      "name": "source_and_candidate_immutability",
+      "result": "pass",
+      "observed": {
+        "protected_baseline_unchanged": true,
+        "user_reviewed_candidate_unchanged": true,
+        "accepted_revision_unchanged_during_capture": true
+      },
+      "criterion": "Runtime validation never overwrites the protected baseline, reviewed source candidate, or accepted revision.",
+      "artifacts": [
+        "validation/m1/capture.json"
+      ]
+    }
+  ],
+  "failures": [],
+  "known_limitations": [
+    "Factory objects are project-authored proxy assets with redistribution_allowed=false until repository-level license terms are supplied.",
+    "The clean Panda pose places joint4 close to its lower limit; the public startup reconciliation remains below the documented 1 mm and 0.002 rad acceptance tolerances.",
+    "Isaac Kit reports the root layer dirty after clean reopen/render initialization; no stage save occurred and all disk hashes remained unchanged.",
+    "The Isaac MCP execute_script response wrapper may return a schema error or stall after payload completion; fresh scratch envelopes and file timestamps are the operation authority."
+  ]
+}

@@ -2,7 +2,8 @@
 
 ## Before the presentation
 
-1. Start Isaac Sim and open `scenes/ridgeback_franka_d455_demo.usd`.
+1. Start Isaac Sim and open
+   `scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd`.
 2. Confirm the Stage tree contains `/World/ridgeback_franka` and
    `/World/IKTarget`.
 3. Press **Play**.

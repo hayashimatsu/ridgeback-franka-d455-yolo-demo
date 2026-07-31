@@ -1,34 +1,19 @@
 # Current Project Position
 
-- Current milestone: `M1`
-- Current gate: factory scene and object catalog
-- State: `ready`
-- Current task ID: `M1-S3`
-- Current task file: `milestones/M1/tasks/M1-S3.md`
-- Codex review prompt: `docs/CODEX_M1_S3_REVIEW_PROMPT.md`
-- Execution lead: Claude Code Opus
-- Final reviewer: Codex
-- Last completed milestone: M0 foundation and baseline verification
-- Reviewed baseline commit: `6d3e435ac220a4fe5b5e20bf0ceacd8369fb7c9b`
-- M0 acceptance commit: `5ac9552f273ca018feef9adaf8b7e1cda6cc1dcb`
-- M1 in-progress contract checkpoint:
-  `2673152c0fecf80fe2fbac4adaf7c54661bc7b3a`
+- Current milestone: `M1 complete`
+- State: `awaiting_user`
+- Current executable task: none
+- Last completed milestone: M1 factory scene and object catalog
+- Accepted scene: `scenes/ridgeback_franka_d455_yolo_demo_m1_r3.usd`
+- Accepted scene SHA-256:
+  `092f9d445a9580946621601e4f918799e1959b9ad80302e1cbb9df67adfd6106`
 - Protected baseline SHA-256:
   `a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc`
-- User-reviewed M1 candidate SHA-256:
-  `05329ddde64616b1bc05287520002e3c862942572225006232bfa76ee0b01758`
-- M1-Step1 result: `pass` for candidate foundation, 30 project-authored
-  identities, five-class catalog, split identities, sources, and hashes.
-- M1-Step2 technical result: `pass` for factory composition, 20 semantic
-  instances, hidden library, static physics, bounded IK/D455 runtime, capture,
-  and USD immutability checks at the recorded Step2 hash.
-- Remaining product evidence: the public `demo_start.py` workflow, unchanged
-  IKTarget/startup-snap measurement, and a visually reviewed capture on the
-  exact current candidate hash, followed by Codex clean-reopen review.
-- Previous process blocker: retired. Do not resume the old Claude Sonnet session;
-  the new Opus execution-lead contract and current task are authoritative.
-- Next action: start a new Claude Code Opus conversation, read
-  `docs/CLAUDE_OPUS_BOOTSTRAP.md`, and execute only `M1-S3`.
-- Commit/push authority: Codex after independent review; Claude must stop after
-  appending the M1 log.
-- Next implementation owner after M1 acceptance: Agent 1 continues M2-M3.
+- M1 acceptance: `validation/m1/acceptance.json`
+- M1 result: `pass`; five classes, 30 catalog identities, 20 semantic display
+  objects, accepted full-rack left D455 view, public operator lifecycle, valid
+  depth/stereo, IKTarget camera-follow evidence, cleanup, and immutable hashes.
+- Execution route note: the user explicitly directed Codex to perform the M1
+  correction without assigning another Claude Code task.
+- Next owner: Agent 1 continues M2-M3 only after the user discusses and approves
+  a new M2 task. No M2 work is authorized or in progress.
