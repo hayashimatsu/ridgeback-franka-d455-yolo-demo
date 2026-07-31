@@ -1,0 +1,1261 @@
+{
+  "schema_version": 1,
+  "format_note": "JSON syntax; valid YAML 1.2",
+  "catalog_id": "ridgeback_franka_d455_yolo_m1_v1",
+  "generated_at_utc": "2026-07-31T00:31:54.192532+00:00",
+  "scene_lineage": {
+    "parent_commit": "439015e93fa47ffea75de0329d41c3dba61ab220",
+    "parent_scene_path": "scenes/ridgeback_franka_d455_demo.usd",
+    "parent_scene_sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc",
+    "candidate_scene_path": "scenes/ridgeback_franka_d455_yolo_demo.usd",
+    "candidate_initial_sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc",
+    "candidate_step2_sha256": "9db2e99c9f121c6c28132bb2ffb09c21f6dc3005dd56ed2754ee6da8337c8e1a",
+    "factory_content_path": "scenes/m1_factory_content.usda",
+    "factory_content_sha256": "4cb30f7854f486bd77f83b5bd47530ce2d920f006d82bcbb82f3047b69a5ff49",
+    "step2_authored_at_utc": "2026-07-31T01:09:47.067090+00:00"
+  },
+  "taxonomy": [
+    {
+      "class_id": 0,
+      "name": "box",
+      "semantic_label": "box"
+    },
+    {
+      "class_id": 1,
+      "name": "bottle",
+      "semantic_label": "bottle"
+    },
+    {
+      "class_id": 2,
+      "name": "hand_tool",
+      "semantic_label": "hand_tool"
+    },
+    {
+      "class_id": 3,
+      "name": "ball",
+      "semantic_label": "ball"
+    },
+    {
+      "class_id": 4,
+      "name": "mechanical_part",
+      "semantic_label": "mechanical_part"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "box_small_carton",
+      "class_id": 0,
+      "class_name": "box",
+      "semantic_label": "box",
+      "display_name": "Small carton",
+      "usd_reference_path": "assets/objects/box/box_small_carton.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/box/box_small_carton",
+      "asset_sha256": "ff3c868e7d5b9b051b396233eacb8bd06ba6e7cbe871f980b2b54667c591b94a",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.18,
+          0.14,
+          0.12
+        ],
+        "uniform_scale_range": [
+          0.75,
+          1.3
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "box_tall_parcel",
+      "class_id": 0,
+      "class_name": "box",
+      "semantic_label": "box",
+      "display_name": "Tall parcel",
+      "usd_reference_path": "assets/objects/box/box_tall_parcel.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/box/box_tall_parcel",
+      "asset_sha256": "df56705e578e3ce4630f13f83109285718af97121c15c3485067354f522f6faf",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.14,
+          0.13,
+          0.28
+        ],
+        "uniform_scale_range": [
+          0.75,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "box_flat_package",
+      "class_id": 0,
+      "class_name": "box",
+      "semantic_label": "box",
+      "display_name": "Flat package",
+      "usd_reference_path": "assets/objects/box/box_flat_package.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/box/box_flat_package",
+      "asset_sha256": "d85eafd91b53a39992e4c2db391c22d6f0d24a23d60a4d2127e22dda9c596393",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.3,
+          0.22,
+          0.07
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "box_cube_carton",
+      "class_id": 0,
+      "class_name": "box",
+      "semantic_label": "box",
+      "display_name": "Cube carton",
+      "usd_reference_path": "assets/objects/box/box_cube_carton.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/box/box_cube_carton",
+      "asset_sha256": "efc5e273a131c10e0573ef795605a8cd2f8055d31e825211a98a59e15232bb94",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.19,
+          0.19,
+          0.19
+        ],
+        "uniform_scale_range": [
+          0.75,
+          1.25
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "box_wide_crate",
+      "class_id": 0,
+      "class_name": "box",
+      "semantic_label": "box",
+      "display_name": "Wide crate",
+      "usd_reference_path": "assets/objects/box/box_wide_crate.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/box/box_wide_crate",
+      "asset_sha256": "a70a211c76af129935cef7187a000bdcaf51ad1fe5364e6c261aa099d7038640",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.34,
+          0.18,
+          0.15
+        ],
+        "uniform_scale_range": [
+          0.75,
+          1.15
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "box_long_case",
+      "class_id": 0,
+      "class_name": "box",
+      "semantic_label": "box",
+      "display_name": "Long case",
+      "usd_reference_path": "assets/objects/box/box_long_case.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/box/box_long_case",
+      "asset_sha256": "6e4f191e213aec920bfde7c2b9e6fad42d96bdcbf4b5d25d9105f2367e1b0e11",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.42,
+          0.12,
+          0.1
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.15
+        ]
+      },
+      "split": "held_out",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "bottle_short_amber",
+      "class_id": 1,
+      "class_name": "bottle",
+      "semantic_label": "bottle",
+      "display_name": "Short amber bottle",
+      "usd_reference_path": "assets/objects/bottle/bottle_short_amber.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/bottle/bottle_short_amber",
+      "asset_sha256": "bcc7b307c6bdf543ff34167d8a734bb01ffaa8b45d4922f81d571827023da8f6",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.075,
+          0.075,
+          0.18
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "bottle_tall_blue",
+      "class_id": 1,
+      "class_name": "bottle",
+      "semantic_label": "bottle",
+      "display_name": "Tall blue bottle",
+      "usd_reference_path": "assets/objects/bottle/bottle_tall_blue.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/bottle/bottle_tall_blue",
+      "asset_sha256": "904c9016f8b7a39c5792856cb4f51cb3f01721561b3c19415415bef93e30d890",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.065,
+          0.065,
+          0.27
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "bottle_wide_green",
+      "class_id": 1,
+      "class_name": "bottle",
+      "semantic_label": "bottle",
+      "display_name": "Wide green bottle",
+      "usd_reference_path": "assets/objects/bottle/bottle_wide_green.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/bottle/bottle_wide_green",
+      "asset_sha256": "2a12fcf68b5bdb852fe0bbef6d94b8a9c8fa514987f398f88db2717878fe2b78",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.1,
+          0.1,
+          0.22
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "bottle_slim_white",
+      "class_id": 1,
+      "class_name": "bottle",
+      "semantic_label": "bottle",
+      "display_name": "Slim white bottle",
+      "usd_reference_path": "assets/objects/bottle/bottle_slim_white.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/bottle/bottle_slim_white",
+      "asset_sha256": "b49587eb52584a9c8f520e0f69db651d26c6465c5f605c8e1623013b7bf0796a",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.052,
+          0.052,
+          0.24
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "bottle_square_red",
+      "class_id": 1,
+      "class_name": "bottle",
+      "semantic_label": "bottle",
+      "display_name": "Square red bottle",
+      "usd_reference_path": "assets/objects/bottle/bottle_square_red.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/bottle/bottle_square_red",
+      "asset_sha256": "1b9f54334a4897ed68d8d99df9ebf62f861b4dbc7aae2a91ae14d088df50f266",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.082,
+          0.082,
+          0.2
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "bottle_flask_violet",
+      "class_id": 1,
+      "class_name": "bottle",
+      "semantic_label": "bottle",
+      "display_name": "Violet flask bottle",
+      "usd_reference_path": "assets/objects/bottle/bottle_flask_violet.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/bottle/bottle_flask_violet",
+      "asset_sha256": "725dee5efe5bfdcea8a21922f84a4ff67783cc647af033400a757e45fa1cb07f",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.095,
+          0.095,
+          0.19
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "held_out",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "hand_tool_hammer",
+      "class_id": 2,
+      "class_name": "hand_tool",
+      "semantic_label": "hand_tool",
+      "display_name": "Claw hammer",
+      "usd_reference_path": "assets/objects/hand_tool/hand_tool_hammer.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/hand_tool/hand_tool_hammer",
+      "asset_sha256": "f086e05a40bbea70abeb3fca6ab35fd7711f378e2ccb59982c861097fc167b81",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.28,
+          0.1,
+          0.04
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "hand_tool_wrench",
+      "class_id": 2,
+      "class_name": "hand_tool",
+      "semantic_label": "hand_tool",
+      "display_name": "Open-end wrench",
+      "usd_reference_path": "assets/objects/hand_tool/hand_tool_wrench.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/hand_tool/hand_tool_wrench",
+      "asset_sha256": "ff8ef2fb64dd3ee127f8f82d5f69e4e067aa89beddb2a711608936609ce545af",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.26,
+          0.07,
+          0.025
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "hand_tool_screwdriver",
+      "class_id": 2,
+      "class_name": "hand_tool",
+      "semantic_label": "hand_tool",
+      "display_name": "Screwdriver",
+      "usd_reference_path": "assets/objects/hand_tool/hand_tool_screwdriver.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/hand_tool/hand_tool_screwdriver",
+      "asset_sha256": "444e09166449c5c9626c3150b0f3492064b9c5e00f91ed87ca419e42016aee8d",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.3,
+          0.055,
+          0.055
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "hand_tool_pliers",
+      "class_id": 2,
+      "class_name": "hand_tool",
+      "semantic_label": "hand_tool",
+      "display_name": "Combination pliers",
+      "usd_reference_path": "assets/objects/hand_tool/hand_tool_pliers.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/hand_tool/hand_tool_pliers",
+      "asset_sha256": "e7767fd78fd08eec6c58d763b5e81791ea7ec52b115fd7eb96925f2272abf356",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.24,
+          0.1,
+          0.035
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.15
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "hand_tool_mallet",
+      "class_id": 2,
+      "class_name": "hand_tool",
+      "semantic_label": "hand_tool",
+      "display_name": "Rubber mallet",
+      "usd_reference_path": "assets/objects/hand_tool/hand_tool_mallet.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/hand_tool/hand_tool_mallet",
+      "asset_sha256": "ecf40b27e24288c1db08a852c9a11af801cfacc5150afaa615d91c304cfc40ca",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.3,
+          0.12,
+          0.07
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.15
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "hand_tool_hex_key",
+      "class_id": 2,
+      "class_name": "hand_tool",
+      "semantic_label": "hand_tool",
+      "display_name": "L-shaped hex key",
+      "usd_reference_path": "assets/objects/hand_tool/hand_tool_hex_key.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/hand_tool/hand_tool_hex_key",
+      "asset_sha256": "8e411a3979a29c782047a70f9f9437cb7028d340885dd72604920f2956957d03",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.22,
+          0.12,
+          0.018
+        ],
+        "uniform_scale_range": [
+          0.85,
+          1.2
+        ]
+      },
+      "split": "held_out",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "ball_red_small",
+      "class_id": 3,
+      "class_name": "ball",
+      "semantic_label": "ball",
+      "display_name": "Small red ball",
+      "usd_reference_path": "assets/objects/ball/ball_red_small.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/ball/ball_red_small",
+      "asset_sha256": "e59105f99d78528a5aa474e744a61021147b0920dfcd128486a60c821c37f7af",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.09,
+          0.09,
+          0.09
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "ball_blue_medium",
+      "class_id": 3,
+      "class_name": "ball",
+      "semantic_label": "ball",
+      "display_name": "Medium blue ball",
+      "usd_reference_path": "assets/objects/ball/ball_blue_medium.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/ball/ball_blue_medium",
+      "asset_sha256": "49d666dd6315d4af2c13f7ebcd11716d1cfa66231479f13287ed6533c75d4231",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.14,
+          0.14,
+          0.14
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "ball_green_large",
+      "class_id": 3,
+      "class_name": "ball",
+      "semantic_label": "ball",
+      "display_name": "Large green ball",
+      "usd_reference_path": "assets/objects/ball/ball_green_large.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/ball/ball_green_large",
+      "asset_sha256": "f93d8eb45982c406a1d3fd79b524ffad65f9b15453ba2b936b9d229fd590a313",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.2,
+          0.2,
+          0.2
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "ball_orange_oval",
+      "class_id": 3,
+      "class_name": "ball",
+      "semantic_label": "ball",
+      "display_name": "Orange oval ball",
+      "usd_reference_path": "assets/objects/ball/ball_orange_oval.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/ball/ball_orange_oval",
+      "asset_sha256": "61f4d00a6417ecfffa923d768c2852d2e23bbca7533c41ff0e67f2d1cc3c37b7",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.18,
+          0.13,
+          0.13
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "ball_white_flattened",
+      "class_id": 3,
+      "class_name": "ball",
+      "semantic_label": "ball",
+      "display_name": "White flattened ball",
+      "usd_reference_path": "assets/objects/ball/ball_white_flattened.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/ball/ball_white_flattened",
+      "asset_sha256": "4dfdb834ad91447f07e2f5ffc51b21cf00f16097f3aa68e58b21585dd4310711",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.16,
+          0.16,
+          0.11
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "ball_violet_rugby",
+      "class_id": 3,
+      "class_name": "ball",
+      "semantic_label": "ball",
+      "display_name": "Violet rugby ball",
+      "usd_reference_path": "assets/objects/ball/ball_violet_rugby.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/ball/ball_violet_rugby",
+      "asset_sha256": "664d47a33d7f36d48c5d39539156db63d4223e70cd7530b4228993530be3126b",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.22,
+          0.12,
+          0.12
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "held_out",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "mechanical_part_flange",
+      "class_id": 4,
+      "class_name": "mechanical_part",
+      "semantic_label": "mechanical_part",
+      "display_name": "Four-lug flange",
+      "usd_reference_path": "assets/objects/mechanical_part/mechanical_part_flange.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/mechanical_part/mechanical_part_flange",
+      "asset_sha256": "c47f3dba542b16f0a86f787d01ea7d138a68c86dc8198b8f44f7b98997ff36a0",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.18,
+          0.18,
+          0.045
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "mechanical_part_pulley",
+      "class_id": 4,
+      "class_name": "mechanical_part",
+      "semantic_label": "mechanical_part",
+      "display_name": "Stepped pulley",
+      "usd_reference_path": "assets/objects/mechanical_part/mechanical_part_pulley.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/mechanical_part/mechanical_part_pulley",
+      "asset_sha256": "10b634d3ffdd0a8cbf89e23a6798b99d97bf3bf9cf7fdb3033cd37be1a021b7d",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.14,
+          0.14,
+          0.08
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "mechanical_part_coupling",
+      "class_id": 4,
+      "class_name": "mechanical_part",
+      "semantic_label": "mechanical_part",
+      "display_name": "Shaft coupling",
+      "usd_reference_path": "assets/objects/mechanical_part/mechanical_part_coupling.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/mechanical_part/mechanical_part_coupling",
+      "asset_sha256": "293d22b4e94eb7aafc71cb1bb7af34dceee0c01cdd2ee2c5b2f811bcdb9dc417",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.09,
+          0.09,
+          0.15
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "train",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "mechanical_part_bracket",
+      "class_id": 4,
+      "class_name": "mechanical_part",
+      "semantic_label": "mechanical_part",
+      "display_name": "L bracket",
+      "usd_reference_path": "assets/objects/mechanical_part/mechanical_part_bracket.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/mechanical_part/mechanical_part_bracket",
+      "asset_sha256": "9b56f1553f16fdb75628086b799d399d1ab749d64afcc0ac70c5ea46d52b425f",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.16,
+          0.12,
+          0.12
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.2
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "mechanical_part_housing",
+      "class_id": 4,
+      "class_name": "mechanical_part",
+      "semantic_label": "mechanical_part",
+      "display_name": "Machine housing",
+      "usd_reference_path": "assets/objects/mechanical_part/mechanical_part_housing.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/mechanical_part/mechanical_part_housing",
+      "asset_sha256": "b9210cdca6086d44db6494170c6a578b9dbb629125de49128a765182ad0b4b07",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.19,
+          0.14,
+          0.11
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.15
+        ]
+      },
+      "split": "validation",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    },
+    {
+      "asset_id": "mechanical_part_roller",
+      "class_id": 4,
+      "class_name": "mechanical_part",
+      "semantic_label": "mechanical_part",
+      "display_name": "Industrial roller",
+      "usd_reference_path": "assets/objects/mechanical_part/mechanical_part_roller.usda",
+      "default_prim_path": "/Asset",
+      "planned_scene_prim_path": "/World/Factory/ObjectLibrary/mechanical_part/mechanical_part_roller",
+      "asset_sha256": "9d19ebe904ea9b591ca353b92c207e8e767ff731430d01ff43975023e7546da8",
+      "source": {
+        "provider": "project_authored",
+        "generator": "scripts/build_m1_object_assets.py",
+        "generator_version": 1,
+        "external_asset": false
+      },
+      "license": {
+        "identifier": "NOASSERTION",
+        "terms_record": "Repository has no LICENSE file as of the parent commit.",
+        "use_conditions": "Project use authorized by the M1 implementation request; independent redistribution requires repository-owner approval.",
+        "redistribution_allowed": false
+      },
+      "geometry": {
+        "nominal_dimensions_m": [
+          0.22,
+          0.1,
+          0.1
+        ],
+        "uniform_scale_range": [
+          0.8,
+          1.15
+        ]
+      },
+      "split": "held_out",
+      "availability": "available",
+      "limitations": [
+        "Procedural proxy asset with intentionally simple geometry and materials.",
+        "No standalone redistribution license has been declared by the repository owner."
+      ]
+    }
+  ],
+  "validation_rules": {
+    "minimum_assets_per_class": 6,
+    "required_splits": [
+      "train",
+      "validation",
+      "held_out"
+    ],
+    "identity_overlap_allowed": false,
+    "maximum_scene_instances": 20
+  },
+  "catalog_limitations": [
+    "The assets are project-authored procedural proxies, not external SimReady assets.",
+    "The repository has no LICENSE file; redistribution_allowed is therefore false for every asset until the owner supplies terms.",
+    "Scene placement, semantic API authoring, and visual acceptance are deferred to M1-Step2 and M1-Step3."
+  ]
+}

@@ -14,16 +14,32 @@ Before live Isaac Sim work or runtime-script changes:
 4. State non-blocking assumptions and proceed once the task is executable.
 5. Use the `isaac-sim-mcp-workflow` skill for scene, physics, articulation, IK, camera, sensor, capture, metrology, USD, or Isaac MCP tasks.
 
-## Codex routing responsibility
+## Codex and Claude execution contract
 
-Codex decides the Claude route from complexity, uncertainty, risk, subsystem coupling, and validation cost:
+Codex is the project architect and final acceptance owner. After discussing a
+milestone step with the user, Codex writes one explicit task file and points
+`milestones/CURRENT.md` to it. Claude Code Opus is the execution lead for that
+task and may decide whether bounded Sonnet delegation improves the result.
 
-- `SONNET`: concrete, bounded, reversible work in one subsystem.
-- `OPUS`: diagnosis, architecture, requirement reconciliation, or evidence review without a separate implementation stream.
-- `OPUS_TO_SONNET`: high-risk or cross-system work where Opus defines and reviews a bounded Sonnet execution task.
-- `AGENT_TEAM`: only genuinely independent parallel workstreams whose expected time savings exceed coordination cost; ask the user before enabling this experimental, higher-cost route.
+- `SONNET`: a concrete, bounded, reversible task may be executed directly when
+  the current task explicitly selects it.
+- `OPUS`: the default project route. Opus executes the current Codex-authored
+  task and may delegate independent or tightly bounded subtasks to Sonnet while
+  retaining integration and verification responsibility.
+- `OPUS_TO_SONNET`: legacy explicit-delegation route. Use only when the current
+  task requires a specific Sonnet execution stream; it is not the project
+  default.
+- `AGENT_TEAM`: only genuinely independent parallel workstreams whose expected
+  time savings exceed coordination cost; ask the user before enabling it.
 
-Do not route by line count alone. Do not use multiple agents for sequential work or same-USD edits.
+Claude appends the execution record to the current milestone `LOG.md`, then
+stops. Claude does not advance `CURRENT.md`, mark a milestone complete, commit,
+or push unless the current task explicitly grants that authority. Codex reviews
+the diff, runtime, images, hashes, and evidence; discusses material follow-up
+with the user; then updates status and commits accepted work.
+
+Do not route by line count alone. Do not allow concurrent writers for the same
+USD, manifest, runtime entry point, or acceptance record.
 
 ## Change and safety policy
 
@@ -52,8 +68,12 @@ Do not route by line count alone. Do not use multiple agents for sequential work
 - Respect the sequential ownership boundaries: Agent 1 owns M1-M3, Agent 2
   owns M4-M5, and Agent 3 owns M6-M7. A later owner starts only after the
   preceding handoff gate is satisfied.
-- At the end of every execution, append one dated entry to the milestone
-  `LOG.md` and update its `STATUS.md` plus `milestones/CURRENT.md`.
+- `milestones/CURRENT.md` must identify exactly one ready task file. Claude must
+  stop when the pointer is absent, ambiguous, not ready, or inconsistent with
+  the observed project state.
+- At the end of every Claude execution, append one dated entry to the milestone
+  `LOG.md` and stop for Codex review. Codex owns `STATUS.md`, `CURRENT.md`, task
+  authoring, final acceptance, and the default commit/push decision.
 - Never rewrite or delete an earlier log entry. Correct it with a later entry.
 - Log objectives, files or prims touched, commands or MCP operations, evidence,
   failures, decisions, commit SHA, and the smallest next action.

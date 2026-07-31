@@ -1,0 +1,42 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Asset"
+{
+    custom string catalog:assetId = "mechanical_part_roller"
+    custom string catalog:className = "mechanical_part"
+    custom string catalog:semanticLabel = "mechanical_part"
+
+    def Cylinder "Roll"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        uniform token axis = "Z"
+        double height = 1
+        double radius = 0.5
+        color3f[] primvars:displayColor = [(0.16, 0.44, 0.48)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0)
+        double3 xformOp:rotateXYZ = (0, 90, 0)
+        double3 xformOp:scale = (0.1, 0.1, 0.18)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Cylinder "Axle"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        uniform token axis = "Z"
+        double height = 1
+        double radius = 0.5
+        color3f[] primvars:displayColor = [(0.16, 0.44, 0.48)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0)
+        double3 xformOp:rotateXYZ = (0, 90, 0)
+        double3 xformOp:scale = (0.035, 0.035, 0.22)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+}

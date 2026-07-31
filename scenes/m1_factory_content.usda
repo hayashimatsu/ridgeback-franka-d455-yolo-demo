@@ -1,0 +1,933 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def Xform "Factory"
+    {
+        custom string factory:sceneVersion = "m1-step2-v1"
+
+        def "Rack"
+        {
+            def Cube "BackPanel"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.2, 0.24, 0.28)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.035, 1.28, 1)
+                double3 xformOp:translate = (1.66, 0, 0.5)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Cube "Shelf_0"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.34, 0.38, 0.42)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.56, 1.28, 0.035)
+                double3 xformOp:translate = (1.39, 0, 0.06)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Cube "Shelf_1"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.34, 0.38, 0.42)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.56, 1.28, 0.035)
+                double3 xformOp:translate = (1.39, 0, 0.34)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Cube "Shelf_2"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.34, 0.38, 0.42)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.56, 1.28, 0.035)
+                double3 xformOp:translate = (1.39, 0, 0.62)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Cube "Shelf_3"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.34, 0.38, 0.42)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.56, 1.28, 0.035)
+                double3 xformOp:translate = (1.39, 0, 0.9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Cube "Post_Left_Front"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.2, 0.24, 0.28)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.045, 0.045, 0.98)
+                double3 xformOp:translate = (1.12, -0.61, 0.49)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Cube "Post_Left_Back"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.2, 0.24, 0.28)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.045, 0.045, 0.98)
+                double3 xformOp:translate = (1.65, -0.61, 0.49)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Cube "Post_Right_Front"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.2, 0.24, 0.28)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.045, 0.045, 0.98)
+                double3 xformOp:translate = (1.12, 0.61, 0.49)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Cube "Post_Right_Back"
+            {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                color3f[] primvars:displayColor = [(0.2, 0.24, 0.28)]
+                double size = 1
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (0.045, 0.045, 0.98)
+                double3 xformOp:translate = (1.65, 0.61, 0.49)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+        }
+
+        def Cube "FloorMarking_0"
+        {
+            float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+            color3f[] primvars:displayColor = [(0.92, 0.66, 0.05)]
+            double size = 1
+            float3 xformOp:rotateXYZ = (0, 0, 0)
+            float3 xformOp:scale = (0.9, 0.045, 0.018)
+            double3 xformOp:translate = (1.4, -0.75, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Cube "FloorMarking_1"
+        {
+            float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+            color3f[] primvars:displayColor = [(0.92, 0.66, 0.05)]
+            double size = 1
+            float3 xformOp:rotateXYZ = (0, 0, 0)
+            float3 xformOp:scale = (0.9, 0.045, 0.018)
+            double3 xformOp:translate = (1.4, 0.75, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+        }
+
+        def Xform "ObjectLibrary"
+        {
+            token visibility = "invisible"
+
+            def Xform "ball"
+            {
+                def Xform "ball_red_small" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/ball/ball_red_small.usda@
+                )
+                {
+                    custom string catalog:assetId = "ball_red_small"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "ball"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "ball_blue_medium" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/ball/ball_blue_medium.usda@
+                )
+                {
+                    custom string catalog:assetId = "ball_blue_medium"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "ball"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "ball_green_large" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/ball/ball_green_large.usda@
+                )
+                {
+                    custom string catalog:assetId = "ball_green_large"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "ball"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "ball_orange_oval" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/ball/ball_orange_oval.usda@
+                )
+                {
+                    custom string catalog:assetId = "ball_orange_oval"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "ball"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "ball_white_flattened" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/ball/ball_white_flattened.usda@
+                )
+                {
+                    custom string catalog:assetId = "ball_white_flattened"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "ball"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "ball_violet_rugby" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/ball/ball_violet_rugby.usda@
+                )
+                {
+                    custom string catalog:assetId = "ball_violet_rugby"
+                    custom string catalog:split = "held_out"
+                    string semantic:Semantics:params:semanticData = "ball"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+            }
+
+            def Xform "bottle"
+            {
+                def Xform "bottle_short_amber" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/bottle/bottle_short_amber.usda@
+                )
+                {
+                    custom string catalog:assetId = "bottle_short_amber"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "bottle"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "bottle_tall_blue" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/bottle/bottle_tall_blue.usda@
+                )
+                {
+                    custom string catalog:assetId = "bottle_tall_blue"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "bottle"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "bottle_wide_green" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/bottle/bottle_wide_green.usda@
+                )
+                {
+                    custom string catalog:assetId = "bottle_wide_green"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "bottle"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "bottle_slim_white" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/bottle/bottle_slim_white.usda@
+                )
+                {
+                    custom string catalog:assetId = "bottle_slim_white"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "bottle"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "bottle_square_red" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/bottle/bottle_square_red.usda@
+                )
+                {
+                    custom string catalog:assetId = "bottle_square_red"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "bottle"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "bottle_flask_violet" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/bottle/bottle_flask_violet.usda@
+                )
+                {
+                    custom string catalog:assetId = "bottle_flask_violet"
+                    custom string catalog:split = "held_out"
+                    string semantic:Semantics:params:semanticData = "bottle"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+            }
+
+            def Xform "box"
+            {
+                def Xform "box_small_carton" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/box/box_small_carton.usda@
+                )
+                {
+                    custom string catalog:assetId = "box_small_carton"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "box"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "box_tall_parcel" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/box/box_tall_parcel.usda@
+                )
+                {
+                    custom string catalog:assetId = "box_tall_parcel"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "box"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "box_flat_package" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/box/box_flat_package.usda@
+                )
+                {
+                    custom string catalog:assetId = "box_flat_package"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "box"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "box_cube_carton" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/box/box_cube_carton.usda@
+                )
+                {
+                    custom string catalog:assetId = "box_cube_carton"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "box"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "box_wide_crate" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/box/box_wide_crate.usda@
+                )
+                {
+                    custom string catalog:assetId = "box_wide_crate"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "box"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "box_long_case" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/box/box_long_case.usda@
+                )
+                {
+                    custom string catalog:assetId = "box_long_case"
+                    custom string catalog:split = "held_out"
+                    string semantic:Semantics:params:semanticData = "box"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+            }
+
+            def Xform "hand_tool"
+            {
+                def Xform "hand_tool_hammer" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/hand_tool/hand_tool_hammer.usda@
+                )
+                {
+                    custom string catalog:assetId = "hand_tool_hammer"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "hand_tool"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "hand_tool_wrench" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/hand_tool/hand_tool_wrench.usda@
+                )
+                {
+                    custom string catalog:assetId = "hand_tool_wrench"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "hand_tool"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "hand_tool_screwdriver" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/hand_tool/hand_tool_screwdriver.usda@
+                )
+                {
+                    custom string catalog:assetId = "hand_tool_screwdriver"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "hand_tool"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "hand_tool_pliers" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/hand_tool/hand_tool_pliers.usda@
+                )
+                {
+                    custom string catalog:assetId = "hand_tool_pliers"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "hand_tool"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "hand_tool_mallet" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/hand_tool/hand_tool_mallet.usda@
+                )
+                {
+                    custom string catalog:assetId = "hand_tool_mallet"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "hand_tool"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "hand_tool_hex_key" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/hand_tool/hand_tool_hex_key.usda@
+                )
+                {
+                    custom string catalog:assetId = "hand_tool_hex_key"
+                    custom string catalog:split = "held_out"
+                    string semantic:Semantics:params:semanticData = "hand_tool"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+            }
+
+            def Xform "mechanical_part"
+            {
+                def Xform "mechanical_part_flange" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/mechanical_part/mechanical_part_flange.usda@
+                )
+                {
+                    custom string catalog:assetId = "mechanical_part_flange"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "mechanical_part"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "mechanical_part_pulley" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/mechanical_part/mechanical_part_pulley.usda@
+                )
+                {
+                    custom string catalog:assetId = "mechanical_part_pulley"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "mechanical_part"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "mechanical_part_coupling" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/mechanical_part/mechanical_part_coupling.usda@
+                )
+                {
+                    custom string catalog:assetId = "mechanical_part_coupling"
+                    custom string catalog:split = "train"
+                    string semantic:Semantics:params:semanticData = "mechanical_part"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "mechanical_part_bracket" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/mechanical_part/mechanical_part_bracket.usda@
+                )
+                {
+                    custom string catalog:assetId = "mechanical_part_bracket"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "mechanical_part"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "mechanical_part_housing" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/mechanical_part/mechanical_part_housing.usda@
+                )
+                {
+                    custom string catalog:assetId = "mechanical_part_housing"
+                    custom string catalog:split = "validation"
+                    string semantic:Semantics:params:semanticData = "mechanical_part"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+
+                def Xform "mechanical_part_roller" (
+                    prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                    prepend references = @../assets/objects/mechanical_part/mechanical_part_roller.usda@
+                )
+                {
+                    custom string catalog:assetId = "mechanical_part_roller"
+                    custom string catalog:split = "held_out"
+                    string semantic:Semantics:params:semanticData = "mechanical_part"
+                    string semantic:Semantics:params:semanticType = "class"
+                    float3 xformOp:rotateXYZ = (0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+                }
+            }
+        }
+
+        def Xform "DisplayObjects"
+        {
+            custom int factory:maximumConfiguredObjects = 20
+
+            def Xform "box_small_carton" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/box/box_small_carton.usda@
+            )
+            {
+                custom string catalog:assetId = "box_small_carton"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 0
+                string semantic:Semantics:params:semanticData = "box"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.3, -0.51, 0.14)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "bottle_short_amber" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/bottle/bottle_short_amber.usda@
+            )
+            {
+                custom string catalog:assetId = "bottle_short_amber"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 1
+                string semantic:Semantics:params:semanticData = "bottle"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 15)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.44, -0.35, 0.08)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "hand_tool_hammer" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/hand_tool/hand_tool_hammer.usda@
+            )
+            {
+                custom string catalog:assetId = "hand_tool_hammer"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 2
+                string semantic:Semantics:params:semanticData = "hand_tool"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, -12)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.27, -0.18, 0.1)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "ball_red_small" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/ball/ball_red_small.usda@
+            )
+            {
+                custom string catalog:assetId = "ball_red_small"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 3
+                string semantic:Semantics:params:semanticData = "ball"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 8)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.45, 0, 0.125)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "mechanical_part_flange" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/mechanical_part/mechanical_part_flange.usda@
+            )
+            {
+                custom string catalog:assetId = "mechanical_part_flange"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 4
+                string semantic:Semantics:params:semanticData = "mechanical_part"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, -8)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.27, 0.18, 0.10250000000000001)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "box_tall_parcel" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/box/box_tall_parcel.usda@
+            )
+            {
+                custom string catalog:assetId = "box_tall_parcel"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 5
+                string semantic:Semantics:params:semanticData = "box"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 12)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.44, 0.35, 0.22000000000000003)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "bottle_tall_blue" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/bottle/bottle_tall_blue.usda@
+            )
+            {
+                custom string catalog:assetId = "bottle_tall_blue"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 6
+                string semantic:Semantics:params:semanticData = "bottle"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.3, 0.51, 0.08)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "hand_tool_wrench" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/hand_tool/hand_tool_wrench.usda@
+            )
+            {
+                custom string catalog:assetId = "hand_tool_wrench"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 7
+                string semantic:Semantics:params:semanticData = "hand_tool"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 5)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.3, -0.51, 0.3725)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "ball_blue_medium" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/ball/ball_blue_medium.usda@
+            )
+            {
+                custom string catalog:assetId = "ball_blue_medium"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 8
+                string semantic:Semantics:params:semanticData = "ball"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, -12)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.44, -0.35, 0.43)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "mechanical_part_pulley" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/mechanical_part/mechanical_part_pulley.usda@
+            )
+            {
+                custom string catalog:assetId = "mechanical_part_pulley"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 9
+                string semantic:Semantics:params:semanticData = "mechanical_part"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 10)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.27, -0.18, 0.39999999999999997)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "box_flat_package" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/box/box_flat_package.usda@
+            )
+            {
+                custom string catalog:assetId = "box_flat_package"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 10
+                string semantic:Semantics:params:semanticData = "box"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, -6)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.45, 0, 0.395)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "bottle_wide_green" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/bottle/bottle_wide_green.usda@
+            )
+            {
+                custom string catalog:assetId = "bottle_wide_green"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 11
+                string semantic:Semantics:params:semanticData = "bottle"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 14)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.27, 0.18, 0.36)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "hand_tool_screwdriver" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/hand_tool/hand_tool_screwdriver.usda@
+            )
+            {
+                custom string catalog:assetId = "hand_tool_screwdriver"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 12
+                string semantic:Semantics:params:semanticData = "hand_tool"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, -10)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.44, 0.35, 0.3875)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "ball_green_large" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/ball/ball_green_large.usda@
+            )
+            {
+                custom string catalog:assetId = "ball_green_large"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 13
+                string semantic:Semantics:params:semanticData = "ball"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 3)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.3, 0.51, 0.45999999999999996)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "mechanical_part_coupling" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/mechanical_part/mechanical_part_coupling.usda@
+            )
+            {
+                custom string catalog:assetId = "mechanical_part_coupling"
+                custom string catalog:split = "train"
+                custom int factory:displayIndex = 14
+                string semantic:Semantics:params:semanticData = "mechanical_part"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, -8)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.31, -0.48, 0.715)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "box_cube_carton" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/box/box_cube_carton.usda@
+            )
+            {
+                custom string catalog:assetId = "box_cube_carton"
+                custom string catalog:split = "validation"
+                custom int factory:displayIndex = 15
+                string semantic:Semantics:params:semanticData = "box"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 10)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.44, -0.29, 0.735)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "bottle_slim_white" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/bottle/bottle_slim_white.usda@
+            )
+            {
+                custom string catalog:assetId = "bottle_slim_white"
+                custom string catalog:split = "validation"
+                custom int factory:displayIndex = 16
+                string semantic:Semantics:params:semanticData = "bottle"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, -5)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.28, -0.1, 0.64)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "hand_tool_pliers" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/hand_tool/hand_tool_pliers.usda@
+            )
+            {
+                custom string catalog:assetId = "hand_tool_pliers"
+                custom string catalog:split = "validation"
+                custom int factory:displayIndex = 17
+                string semantic:Semantics:params:semanticData = "hand_tool"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 7)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.44, 0.1, 0.6575)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "ball_orange_oval" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/ball/ball_orange_oval.usda@
+            )
+            {
+                custom string catalog:assetId = "ball_orange_oval"
+                custom string catalog:split = "validation"
+                custom int factory:displayIndex = 18
+                string semantic:Semantics:params:semanticData = "ball"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, -11)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.28, 0.29, 0.7050000000000001)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+
+            def Xform "mechanical_part_bracket" (
+                prepend apiSchemas = ["SemanticsAPI:Semantics"]
+                prepend references = @../assets/objects/mechanical_part/mechanical_part_bracket.usda@
+            )
+            {
+                custom string catalog:assetId = "mechanical_part_bracket"
+                custom string catalog:split = "validation"
+                custom int factory:displayIndex = 19
+                string semantic:Semantics:params:semanticData = "mechanical_part"
+                string semantic:Semantics:params:semanticType = "class"
+                float3 xformOp:rotateXYZ = (0, 0, 4)
+                float3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (1.42, 0.48, 0.7)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+            }
+        }
+    }
+}

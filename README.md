@@ -83,6 +83,7 @@ for this repository will use a new revision.
 
 ## Routing
 
-The selected implementation route is `OPUS_TO_SONNET`: architecture and
-cross-system risk are reviewed first, followed by bounded implementation and
-independent acceptance review.
+The selected implementation route is `OPUS`: Codex and the user define one
+durable milestone task, Claude Code Opus executes it and may delegate bounded
+subtasks to Sonnet, and Codex independently reviews runtime evidence and decides
+acceptance, follow-up, commit, and push.

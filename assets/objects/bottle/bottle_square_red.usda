@@ -1,0 +1,54 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Asset"
+{
+    custom string catalog:assetId = "bottle_square_red"
+    custom string catalog:className = "bottle"
+    custom string catalog:semanticLabel = "bottle"
+
+    def Cube "Body"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        double size = 1
+        color3f[] primvars:displayColor = [(0.68, 0.12, 0.12)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0.072)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.082, 0.082, 0.144)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Cylinder "Neck"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        uniform token axis = "Z"
+        double height = 1
+        double radius = 0.5
+        color3f[] primvars:displayColor = [(0.68, 0.12, 0.12)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0.164)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.03444, 0.03444, 0.04)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Cylinder "Cap"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        uniform token axis = "Z"
+        double height = 1
+        double radius = 0.5
+        color3f[] primvars:displayColor = [(0.68, 0.12, 0.12)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0.192)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.041, 0.041, 0.016)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+}

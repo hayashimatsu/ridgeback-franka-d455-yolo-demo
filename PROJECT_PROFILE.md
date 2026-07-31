@@ -122,13 +122,20 @@
 
 ## 執行與交接文件
 
-- 每次 milestone 工作前必讀 `milestones/CURRENT.md`、
-  `milestones/AGENT_HANDOFF.md`、目標 milestone 的 `STATUS.md` 與累積
-  `LOG.md`。
+- Codex 與使用者決定 milestone step；Codex 建立 task file，並由
+  `milestones/CURRENT.md` 指向唯一可執行任務。
+- 每個新的 Claude Code Opus 對話先完整讀取
+  `docs/CLAUDE_OPUS_BOOTSTRAP.md`，再依其中順序讀取 `CURRENT.md`、
+  `AGENT_HANDOFF.md`、目標 milestone 的 `STATUS.md`、累積 `LOG.md` 與
+  current task file。
 - Agent 1 依序負責 M1-M3，Agent 2 依序負責 M4-M5，Agent 3 依序負責
   M6-M7；前段 handoff gate 未通過時，後段不得開始。
-- 每次執行結束都必須追加 milestone log、更新 status 與 current pointer，
-  並記錄 evidence、失敗、決策、commit SHA 與下一個最小動作。
+- Claude Code Opus 是 current task 的 execution lead，可自行判斷是否將
+  範圍明確的子任務委派給 Sonnet；Opus 負責整合與追加 milestone log，
+  然後停止等待 Codex review，不得自行開始下一個 task。
+- Codex 負責獨立檢查 Git diff、Isaac Sim runtime、圖片、hash 與 evidence，
+  並在與使用者討論必要 follow-up 後更新 `STATUS.md`、`CURRENT.md`、決定
+  acceptance、commit 與 push。
 - 既有 log 只能追加，不得改寫或刪除；修正以新的 dated entry 說明。
 
 ## 可觀察的 acceptance gates

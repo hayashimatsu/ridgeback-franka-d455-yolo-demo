@@ -18,18 +18,20 @@ Before milestone work, read:
 3. `AGENT_HANDOFF.md`
 4. the target milestone `STATUS.md`
 5. the target milestone `LOG.md`
-6. the preceding milestone status and final handoff entry
+6. the unique task file referenced by `CURRENT.md`
+7. the preceding milestone status and final handoff entry
 
 ## Required end-of-run update
 
-Every execution must:
+Every Claude execution must:
 
 1. append one UTC-dated entry to the target milestone `LOG.md`;
-2. update the target `STATUS.md` without deleting history from its log;
-3. update `CURRENT.md` when state, blocker, evidence, commit, or next action
-   changes;
-4. cite durable evidence paths and the commit SHA when one exists;
-5. disclose failed or blocked checks rather than changing them to pass.
+2. cite evidence paths and disclose failed or blocked checks;
+3. stop for Codex review without advancing the task or milestone.
+
+Codex owns task files, `STATUS.md`, `CURRENT.md`, final acceptance, and the
+default commit/push decision. After review, Codex appends a review entry and
+either accepts the step or discusses and authors a follow-up task with the user.
 
 Use one cumulative log per milestone. Raw retries and large evidence remain in
 ignored `outputs/` or `validation/tmp/` locations.

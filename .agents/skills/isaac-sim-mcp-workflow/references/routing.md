@@ -18,11 +18,18 @@ Examples: run a known capture, inspect a prim, apply a bounded script fix, repea
 
 ### OPUS
 
-Use one Opus session for reasoning or review without a separate executor when the deliverable is primarily diagnosis, architecture, requirement reconciliation, or an evidence audit.
+Use one Opus execution-lead session when Codex has already written a complete
+current task contract. Opus may implement directly or delegate bounded work to
+Sonnet, but it owns integration, task-level verification, and the milestone log.
+Codex remains the final acceptance and commit owner.
 
 ### OPUS_TO_SONNET
 
-Use Opus as the main orchestrator and delegate bounded implementation to the `isaac-sim-executor` Sonnet agent when any applies:
+This is a legacy explicit-delegation route. Use it only when the current task
+requires Opus to create a specific Sonnet execution stream. The default project
+route is `OPUS`, in which Opus decides whether delegation is useful.
+
+Explicit delegation may still be appropriate when any applies:
 
 - requirements conflict or acceptance must be designed;
 - scene authoring crosses physics, articulation, camera, render, or persistence boundaries;
@@ -31,7 +38,9 @@ Use Opus as the main orchestrator and delegate bounded implementation to the `is
 - provenance, runtime/authored state, or save authority is material;
 - an independent final evidence review is valuable.
 
-Opus must send the executor an exact objective, allowed files/prims, forbidden changes, required checks, output location, and stop conditions. Resume the same executor for related follow-up work instead of repeatedly spawning fresh contexts.
+Opus must send the executor an exact objective, allowed files/prims, forbidden
+changes, required checks, output location, and stop conditions. Opus must review
+the result and prevent concurrent writers for shared artifacts.
 
 ### AGENT_TEAM
 
@@ -41,7 +50,7 @@ Do not use a team for sequential work, same-USD edits, one small fix, or tasks w
 
 ## Codex routing output
 
-When handing work to Claude Code, report:
+When Codex authors a Claude task, record:
 
 ```text
 ROUTE: SONNET | OPUS | OPUS_TO_SONNET | AGENT_TEAM
@@ -53,4 +62,5 @@ AUTHORITY: allowed saves, commits, and external actions
 STOP: conditions that require returning to the user
 ```
 
-Do not add this ceremony when Codex can answer a simple question directly without a Claude handoff.
+The durable version belongs in the task file referenced by
+`milestones/CURRENT.md`; conversation text is not the task authority.

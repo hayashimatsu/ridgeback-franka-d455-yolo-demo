@@ -1,0 +1,38 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Asset"
+{
+    custom string catalog:assetId = "box_flat_package"
+    custom string catalog:className = "box"
+    custom string catalog:semanticLabel = "box"
+
+    def Cube "Body"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        double size = 1
+        color3f[] primvars:displayColor = [(0.34, 0.58, 0.78)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.3, 0.22, 0.07)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Cube "TopBand"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        double size = 1
+        color3f[] primvars:displayColor = [(0.34, 0.58, 0.78)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.024, 0.2222, 0.0707)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+}

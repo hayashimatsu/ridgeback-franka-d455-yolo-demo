@@ -1,0 +1,38 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Asset"
+{
+    custom string catalog:assetId = "mechanical_part_bracket"
+    custom string catalog:className = "mechanical_part"
+    custom string catalog:semanticLabel = "mechanical_part"
+
+    def Cube "Base"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        double size = 1
+        color3f[] primvars:displayColor = [(0.26, 0.32, 0.42)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, -0.0475)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.16, 0.12, 0.025)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Cube "Upright"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        double size = 1
+        color3f[] primvars:displayColor = [(0.26, 0.32, 0.42)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (-0.0675, 0, 0)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.025, 0.12, 0.12)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+}

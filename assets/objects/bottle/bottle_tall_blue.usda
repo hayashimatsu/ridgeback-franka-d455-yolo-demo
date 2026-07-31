@@ -1,0 +1,56 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Asset"
+{
+    custom string catalog:assetId = "bottle_tall_blue"
+    custom string catalog:className = "bottle"
+    custom string catalog:semanticLabel = "bottle"
+
+    def Cylinder "Body"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        uniform token axis = "Z"
+        double height = 1
+        double radius = 0.5
+        color3f[] primvars:displayColor = [(0.12, 0.35, 0.72)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0.0972)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.065, 0.065, 0.1944)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Cylinder "Neck"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        uniform token axis = "Z"
+        double height = 1
+        double radius = 0.5
+        color3f[] primvars:displayColor = [(0.12, 0.35, 0.72)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0.2214)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.0273, 0.0273, 0.054)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Cylinder "Cap"
+    {
+        float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+        uniform token axis = "Z"
+        double height = 1
+        double radius = 0.5
+        color3f[] primvars:displayColor = [(0.12, 0.35, 0.72)]
+        uniform token primvars:displayColor:interpolation = "constant"
+        double3 xformOp:translate = (0, 0, 0.2592)
+        double3 xformOp:rotateXYZ = (0, 0, 0)
+        double3 xformOp:scale = (0.0325, 0.0325, 0.0216)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+}
