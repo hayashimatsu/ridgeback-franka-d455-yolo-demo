@@ -34,6 +34,7 @@
   root dirty after reopen/render initialization, but no USD save occurred.
 - M1 acceptance commit:
   `870eea1f07a43c7cbdd1f996989516fe8c917e81`.
-- Push: pending the final handoff metadata commit in this turn.
+- Push: `origin/main` contains the M1 acceptance commit and handoff commit
+  `4ae3dac331b529442d2fdf291a18daece83ec6ff`.
 - Next action: discuss M2 scope with the user before authoring or executing an
   M2 task. M2 has not started.

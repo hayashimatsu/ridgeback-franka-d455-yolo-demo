@@ -886,3 +886,12 @@ No execution has started. Entry gate M0 is blocked.
 - This entry and the matching STATUS commit pointer will be recorded in a final
   handoff metadata commit, then both commits will be pushed. M2 remains
   `not_run`; CURRENT has no executable task.
+
+## 2026-07-31T06:32:00Z — M1 push confirmed
+
+- Pushed `main` to `origin/main` successfully.
+- Remote `main` contains M1 acceptance commit
+  `870eea1f07a43c7cbdd1f996989516fe8c917e81` and handoff commit
+  `4ae3dac331b529442d2fdf291a18daece83ec6ff`.
+- M1 is complete. M2 remains `not_run`, and no executable next task exists until
+  the user discusses and approves M2 scope.
