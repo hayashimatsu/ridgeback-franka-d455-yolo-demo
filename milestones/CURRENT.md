@@ -4,6 +4,7 @@
 - State: `ready`
 - Last completed milestone: M0 foundation and baseline verification
 - Reviewed baseline commit: `6d3e435ac220a4fe5b5e20bf0ceacd8369fb7c9b`
+- M0 acceptance commit: `5ac9552f273ca018feef9adaf8b7e1cda6cc1dcb`
 - Expected reviewed baseline SHA-256: `a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc`
 - Durable evidence: `validation/baseline/clean_reopen_check.json`
 - M0 result: `pass`; the exact reviewed USD reopened, ran two IK poses and two

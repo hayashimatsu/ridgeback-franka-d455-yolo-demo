@@ -86,3 +86,11 @@
   was not saved into the baseline.
 - M0 result: pass. Agent 1 may begin M1 from the reviewed commit, creating a new
   scene revision rather than editing the protected baseline.
+
+## 2026-07-31T00:12:09Z — M0 handoff commit
+
+- Acceptance harness, compact evidence, reviewed golden media, and milestone
+  transition were committed as
+  `5ac9552f273ca018feef9adaf8b7e1cda6cc1dcb`.
+- Agent 1 entry state: baseline USD commit `6d3e435`, M0 acceptance commit
+  `5ac9552`; no M1 USD or object catalog exists yet.
