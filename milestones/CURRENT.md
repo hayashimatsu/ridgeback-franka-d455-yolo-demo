@@ -10,6 +10,8 @@
 - Last completed milestone: M0 foundation and baseline verification
 - Reviewed baseline commit: `6d3e435ac220a4fe5b5e20bf0ceacd8369fb7c9b`
 - M0 acceptance commit: `5ac9552f273ca018feef9adaf8b7e1cda6cc1dcb`
+- M1 in-progress contract checkpoint:
+  `2673152c0fecf80fe2fbac4adaf7c54661bc7b3a`
 - Protected baseline SHA-256:
   `a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc`
 - User-reviewed M1 candidate SHA-256:

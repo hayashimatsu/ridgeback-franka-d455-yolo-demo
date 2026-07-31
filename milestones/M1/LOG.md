@@ -512,3 +512,15 @@ No execution has started. Entry gate M0 is blocked.
 - Next action: commit this honest M1 in-progress checkpoint, then start a new
   Claude Code Opus conversation with `docs/CLAUDE_OPUS_BOOTSTRAP.md`; Claude
   executes only `M1-S3`, appends this log, and stops for Codex review.
+
+## 2026-07-31T02:47:05Z — M1 contract checkpoint commit
+
+- The current M1 assets, factory candidate, validators, full cumulative log,
+  Opus execution-lead contract, permanent bootstrap prompt, and ready `M1-S3`
+  task were committed as
+  `2673152c0fecf80fe2fbac4adaf7c54661bc7b3a`.
+- This is an `in_progress` checkpoint, not M1 acceptance. Exact-hash public
+  workflow evidence and Codex runtime/visual review remain required.
+- Next action: start a new Claude Code Opus conversation and instruct it to read
+  `docs/CLAUDE_OPUS_BOOTSTRAP.md`; it must execute only the task referenced by
+  `milestones/CURRENT.md`, append this log, and stop for Codex review.
