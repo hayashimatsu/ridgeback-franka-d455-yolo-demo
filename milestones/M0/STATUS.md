@@ -1,19 +1,22 @@
 # M0 Status — Foundation and Baseline Verification
 
 - Owner: Codex / project bootstrap
-- State: `in_progress`
+- State: `complete`
 - Import result: `complete`
-- Clean-reopen result: `blocked`
-- Completed commit: `e2b4f44857ecf8a3b98df86917a17f7d2d312c1d`
+- Clean-reopen result: `pass`
+- Reviewed baseline commit: `6d3e435ac220a4fe5b5e20bf0ceacd8369fb7c9b`
 - Imported-file verification: pass, 14 of 14 hashes
 - Clean validation source: detached worktree at commit `e2b4f44`
 - Reviewed baseline save: complete with explicit user authority; SHA-256
   `a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc`.
-- Blocker: none; clean-reopen runtime gates remain pending.
-- Unexpected protected state: canonical baseline USD is dirty and remains
-  untouched.
+- Runtime verification: pass for Play stability, IK lifecycle and two poses,
+  D455 rigidity, two unique captures, RGB/depth, stereo baseline, visible
+  surface measurement, cleanup, and root USD immutability.
+- Known limitation: Isaac Sim marks the root layer dirty immediately after
+  reopen due to runtime/render authored state, but the on-disk SHA-256 remained
+  unchanged throughout acceptance.
 
-## Remaining gates
+## Completed gates
 
 - Open the clean committed baseline USD in a fresh Isaac Sim GUI session.
 - Confirm active root-layer path and SHA-256.
@@ -24,5 +27,5 @@
   baseline within tolerance, restored target visibility, and unchanged USD hash.
 - Stop controller and timeline; record final state.
 
-M1 must not start until these gates pass or the user explicitly changes the
-project contract.
+M1 may now start from reviewed baseline commit `6d3e435`; it must create a new
+scene revision and must not edit the imported baseline USD.

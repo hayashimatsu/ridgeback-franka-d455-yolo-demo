@@ -58,3 +58,31 @@
   state, render settings, and Replicator render products.
 - Added `validation/baseline/reviewed_baseline.json`; clean-reopen acceptance is
   still required before calling the reviewed scene a passing baseline.
+
+## 2026-07-31T00:12:09Z — Reviewed baseline clean-reopen acceptance passed
+
+- Reopened the exact reviewed baseline from commit `6d3e435`; active stage path
+  and disk SHA-256 `a724cd7d...` matched the recorded baseline.
+- Ran 120 Play frames, repeated IK startup, and two materially different target
+  poses. One subscription remained active, both poses settled, and controller
+  error count remained zero.
+- Confirmed the D455 left camera remained rigid to `panda_hand`: relative
+  translation delta `2.90e-08 m`, maximum rotation-matrix element delta
+  `1.40e-07`.
+- Produced unique captures `2026-0731-1` and `2026-0731-2`; both passed RGB,
+  depth, `0.09505 m` stereo baseline, target visibility restoration, and visible
+  surface measurement checks. Representative RGB and depth images were
+  inspected directly.
+- The initial harness reported a Play stability failure because it selected the
+  maximum over every articulation DOF. An independent repeat isolated
+  `0.000109664` to `dummy_base_prismatic_x_joint`; the seven Panda joints moved
+  no more than `4.23e-10 rad`. Corrected the reusable harness to evaluate
+  `panda_joint1` through `panda_joint7` and retain non-arm drift as an
+  observation.
+- Stopped the controller and timeline; subscription count returned to zero.
+  The USD disk SHA-256 was unchanged after the full run.
+- Isaac Sim still marks the root layer dirty immediately after reopen because
+  of runtime/render authored state. This is retained as a known limitation and
+  was not saved into the baseline.
+- M0 result: pass. Agent 1 may begin M1 from the reviewed commit, creating a new
+  scene revision rather than editing the protected baseline.

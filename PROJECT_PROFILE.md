@@ -40,7 +40,7 @@
 - M0 已從唯讀基準導入目前的 USD、三支 runtime scripts、必要文件、manifest、歷史 compact acceptance 與五張 golden images；來源 commit 與逐檔 SHA-256 記錄於 `validation/baseline/provenance.json`。
 - 唯讀基準專案：`/home/rci05/User/Lin/test_claude_mcp_04`。
 - 基準專案目前位於 Git `main`，既有 release acceptance 為 `pass`。
-- 歷史 release acceptance 記錄的場景 SHA-256 為 `b3e83bd6...`，目前導入場景為 `ce5690e4...`；兩者不一致，因此歷史 pass 不可直接繼承，目前場景仍需 clean-reopen 驗證。
+- 歷史 release acceptance 記錄的場景 SHA-256 為 `b3e83bd6...`，最初導入場景為 `ce5690e4...`，因此沒有直接繼承歷史 pass。使用者 review 後的 baseline 已保存於 commit `6d3e435`，場景 SHA-256 為 `a724cd7d...`，並於 M0 通過獨立 clean-reopen runtime 驗證。
 - 基準場景：`/home/rci05/User/Lin/test_claude_mcp_04/scenes/ridgeback_franka_d455_demo.usd`。
 - 基準場景已驗證：
   - Ridgeback + Franka Panda；

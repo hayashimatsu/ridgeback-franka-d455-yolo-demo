@@ -1,72 +1,94 @@
 {
   "schema": "ridgeback-d455-yolo-baseline-clean-reopen-v1",
-  "run_id": "m0-clean-reopen-20260730T235109Z",
-  "timestamp_utc": "2026-07-30T23:51:09Z",
-  "result": "in_progress",
-  "expected_baseline": {
-    "commit": "pending_reviewed_baseline_commit",
+  "run_id": "m0-clean-reopen-20260731T000556Z",
+  "timestamp_utc": "2026-07-31T00:12:09Z",
+  "result": "pass",
+  "baseline": {
+    "commit": "6d3e435ac220a4fe5b5e20bf0ceacd8369fb7c9b",
     "scene": "scenes/ridgeback_franka_d455_demo.usd",
-    "sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc"
+    "sha256_before": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc",
+    "sha256_after": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc",
+    "unchanged": true
   },
-  "canonical_working_copy": {
-    "scene_dirty": false,
-    "observed_sha256": "a724cd7da8c31ced82cba32a41c4abdf75d8011e4baebf274079c30e2c44a7cc",
-    "action": "saved_with_explicit_user_review_authority"
+  "runtime": {
+    "assets_version": "6.0",
+    "interface": "Codex Isaac Sim MCP server",
+    "active_stage_verified": true,
+    "clean_stage_reopen": true,
+    "timeline_playing_after": false
   },
-  "clean_validation_worktree": {
-    "commit": "e2b4f44857ecf8a3b98df86917a17f7d2d312c1d",
-    "baseline_hash_verification": "pass",
-    "verified_file_count": 14
+  "checks": {
+    "play_stability": {
+      "result": "pass",
+      "frames": 120,
+      "panda_joint_count": 7,
+      "max_abs_panda_joint_delta_rad": 4.2278452960786694e-10,
+      "threshold_rad": 0.0001,
+      "observed_non_arm_dummy_base_delta_rad_or_m": 0.00010966387344524264
+    },
+    "ik_lifecycle_and_two_pose_motion": {
+      "result": "pass",
+      "subscription_count_after_repeated_start": 1,
+      "controller_error_count": 0,
+      "pose_settle_frames": [41, 44],
+      "position_residual_m": [0.001548602245748043, 0.0018702043453231454],
+      "rotation_residual_rad": [0.007756274162523188, 0.002034146169381715]
+    },
+    "d455_rigid_attachment": {
+      "result": "pass",
+      "poses_compared": 2,
+      "hand_relative_translation_delta_m": 2.9020500265865247e-08,
+      "max_rotation_matrix_element_delta": 1.3966716716495853e-07
+    },
+    "capture_sequence": {
+      "result": "pass",
+      "run_ids": ["2026-0731-1", "2026-0731-2"],
+      "overwrites": false,
+      "capture_statuses": ["pass", "pass"]
+    },
+    "rgb_depth_and_visual_review": {
+      "result": "pass",
+      "resolution": [640, 480],
+      "valid_left_depth_pixels": [307200, 307200],
+      "left_rgb_means": [195.59077039930557, 195.6972243923611],
+      "left_right_changed_pixel_fraction": [0.448251953125, 0.441787109375],
+      "visual_review": "Both poses show the red target and corresponding depth surface; marker and measured range change with camera pose."
+    },
+    "stereo_baseline": {
+      "result": "pass",
+      "required_m": 0.095,
+      "tolerance_m": 0.002,
+      "observed_m": [0.09504872013447158, 0.09504872757254768]
+    },
+    "visible_surface_measurement": {
+      "result": "pass",
+      "reported_target_counts": [1, 1],
+      "distance_to_camera_m": [0.9030533698430477, 0.9133893646585624]
+    },
+    "root_usd_immutability": {
+      "result": "pass"
+    },
+    "cleanup": {
+      "result": "pass",
+      "subscription_count_after_stop": 0,
+      "timeline_playing_after_stop": false
+    }
   },
-  "connection": {
-    "claude_mcp_registration": "present_but_failed_to_connect",
-    "initial_codex_get_scene_info": "failed_no_isaac_scene_service",
-    "initial_running_isaac_or_kit_process_found": false,
-    "initial_gui_launch_approval": "not_granted",
-    "runtime_later_available": true,
-    "codex_get_scene_info_after_user_start": "success",
-    "assets_version": "6.0"
-  },
-  "active_stage_after_runtime_start": {
-    "root_path": "/home/rci05/User/Lin/test_codex_claude_mcp_1/ridgeback-franka-d455-yolo-demo/scenes/ridgeback_franka_d455_demo.usd",
-    "root_layer_dirty": false,
-    "timeline_playing": false,
-    "action": "root_layer_saved_while_timeline_stopped"
-  },
-  "checks": [
+  "reviewed_evidence": [
+    "validation/baseline/golden/reviewed_pose1_rgb_left_annotated.png",
+    "validation/baseline/golden/reviewed_pose2_depth_preview_annotated.png"
+  ],
+  "failed_probes": [
     {
-      "name": "active_stage_identity",
-      "result": "observed_before_clean_reopen"
-    },
-    {
-      "name": "play_stability",
-      "result": "not_run"
-    },
-    {
-      "name": "ik_lifecycle_and_two_pose_motion",
-      "result": "not_run"
-    },
-    {
-      "name": "d455_rigid_attachment",
-      "result": "not_run"
-    },
-    {
-      "name": "two_capture_rgb_depth_baseline_and_uniqueness",
-      "result": "not_run"
-    },
-    {
-      "name": "root_usd_immutability",
-      "result": "not_run"
-    },
-    {
-      "name": "cleanup",
-      "result": "not_run"
+      "probe": "initial validation/run_baseline_acceptance.py classification",
+      "observed": "The maximum across all articulation DOFs was attributed to Play stability and exceeded 1e-4.",
+      "resolution": "An independent repeat isolated the 0.000109664 value to dummy_base_prismatic_x_joint; the seven Panda arm joints remained below 4.23e-10 rad. The reusable validator now evaluates panda_joint1 through panda_joint7 explicitly."
     }
   ],
-  "blockers": [],
-  "failures": [],
   "known_limitations": [
-    "This record proves only static committed-file integrity; it contains no live runtime, camera, image, depth, articulation, or capture evidence."
+    "Isaac Sim marks the root layer dirty immediately after open because of runtime/render authored state; the disk SHA-256 remained unchanged before and after all checks.",
+    "The MCP execute_script response wrapper timed out after 300 seconds even though the harness completed, wrote its result, stopped the controller, and stopped the timeline.",
+    "This M0 gate validates the imported D455/IK/capture foundation; it does not claim that the M1 factory scene or YOLO pipeline exists."
   ],
-  "next_action": "Commit the explicitly reviewed USD, then clean-reopen that exact commit and resume live gates before M1."
+  "next_action": "Begin M1 by deriving scenes/ridgeback_franka_d455_yolo_demo.usd and creating the licensed five-class object catalog without modifying the baseline scene."
 }
