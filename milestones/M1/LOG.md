@@ -524,3 +524,19 @@ No execution has started. Entry gate M0 is blocked.
 - Next action: start a new Claude Code Opus conversation and instruct it to read
   `docs/CLAUDE_OPUS_BOOTSTRAP.md`; it must execute only the task referenced by
   `milestones/CURRENT.md`, append this log, and stop for Codex review.
+
+## 2026-07-31T04:25:56Z — Persisted Codex M1-S3 review prompt
+
+- Clarified the user-controlled workflow: Codex does not launch Claude. The user
+  starts Claude Code Opus and points it to `docs/CLAUDE_OPUS_BOOTSTRAP.md`.
+- Added `docs/CODEX_M1_S3_REVIEW_PROMPT.md` for the return path after Claude
+  finishes. It requires Codex to inspect the newest Claude log, full diff,
+  exact hashes, public operator workflow, live Isaac runtime, RGB/depth,
+  callback cleanup, validators, and remaining M1 gates before acceptance.
+- Updated `milestones/CURRENT.md` and the M1-S3 handoff to point to the Codex
+  review prompt.
+- A mistakenly started empty Claude CLI process was stopped at its external
+  import confirmation screen. It did not read the bootstrap, execute M1-S3,
+  access Isaac MCP, or modify the repository.
+- M1 remains `in_progress`; M1-S3 remains `ready` for the user's Claude Code
+  Opus run. No runtime or USD operation occurred in this documentation update.

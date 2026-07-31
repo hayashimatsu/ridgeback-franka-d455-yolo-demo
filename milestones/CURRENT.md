@@ -5,6 +5,7 @@
 - State: `ready`
 - Current task ID: `M1-S3`
 - Current task file: `milestones/M1/tasks/M1-S3.md`
+- Codex review prompt: `docs/CODEX_M1_S3_REVIEW_PROMPT.md`
 - Execution lead: Claude Code Opus
 - Final reviewer: Codex
 - Last completed milestone: M0 foundation and baseline verification
