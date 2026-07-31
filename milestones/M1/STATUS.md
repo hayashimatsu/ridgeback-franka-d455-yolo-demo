@@ -32,6 +32,8 @@
 - Known limitations: proxy assets remain non-redistributable until repository
   license terms are supplied; joint4 is near its lower limit; Isaac Kit reports
   root dirty after reopen/render initialization, but no USD save occurred.
-- Commit/push: pending final staged-diff inspection in this acceptance turn.
+- M1 acceptance commit:
+  `870eea1f07a43c7cbdd1f996989516fe8c917e81`.
+- Push: pending the final handoff metadata commit in this turn.
 - Next action: discuss M2 scope with the user before authoring or executing an
   M2 task. M2 has not started.

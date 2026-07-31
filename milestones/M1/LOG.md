@@ -872,3 +872,17 @@ No execution has started. Entry gate M0 is blocked.
   runtime target offset is retained. Root reports the known Kit dirty state and
   was not saved.
 - Commit SHA: pending the final staged diff below. M2 remains `not_run`.
+
+## 2026-07-31T06:30:00Z — M1 acceptance commit
+
+- Final staged diff contained only the 17 accepted M1 scene, code, catalog,
+  evidence, documentation, and continuity files; no protected baseline or
+  user-reviewed source-candidate diff existed, and no unrelated file was staged.
+- Syntax, catalog JSON, compact acceptance schema, staged diff, deterministic
+  rebuild, active-stage hash, runtime cleanup, and representative-image gates
+  all passed before commit.
+- M1 acceptance commit:
+  `870eea1f07a43c7cbdd1f996989516fe8c917e81`.
+- This entry and the matching STATUS commit pointer will be recorded in a final
+  handoff metadata commit, then both commits will be pushed. M2 remains
+  `not_run`; CURRENT has no executable task.
